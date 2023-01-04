@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Pelaaja {
     boolean sininen = false;
@@ -9,6 +10,7 @@ public class Pelaaja {
     boolean vihrea = false;
     boolean oranssi = false;
 
+        
 
     public void oikeaVastaus(String vari){
         if(vari.equals("sininen")){
@@ -37,7 +39,15 @@ public class Pelaaja {
         tilanne.put("keltainen", keltainen);
         tilanne.put("vihrea", vihrea);
         tilanne.put("oranssi", oranssi);
+
+        for (Boolean arvo : tilanne.values()) {
+            if(arvo==false){
+                System.out.println();
+            }
+        }
+
         return tilanne;
 
     }
+
 }

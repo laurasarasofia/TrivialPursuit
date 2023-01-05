@@ -18,7 +18,25 @@ public class Kysymykset {
     Map<String, String> keltaiset = Map.of(
             "Euroopan hulluvuosi?", "1848",
             "Mihin Yhdysvallat tiputtivat ensimmäisen atomipommin?", "Hiroshima",
-            "Suomen ensimmäinen presidentti? (sukunimi)", "Ståhlberg");
+            "Suomen ensimmäinen presidentti? (sukunimi)", "Ståhlberg"
+    );
+
+    Map<String,String> ruskeat = Map.of(
+        "Kuka maalasi Mona Lisan?", "Leonardo Da Vinci",
+        "Mistä maasta Vivienne Westwood on kotoisin?", "Iso-Britannia",
+        "Myydyin musiikkialbumi?", "Thriller"
+
+    );
+    Map<String, String> vihreat = Map.of(
+        "Mikä on kullan järjestysluku?", "79",
+        "Mikä on neljäs olomuoto kiinteän, nesteen ja kaasun lisäksi?", "Plasma",
+        "Montako mahaa lehmällä on?", "4"
+    );
+    Map<String, String> oranssit = Map.of(
+        "Missä kaupungissa pidettiin vuoden 2008 olympialaiset?", "Peking",
+        "Mikä oli Caitlyn Jennerin olympialaji?", "Kymmenottelu",
+        "Mikä on Tony Hawkin urheilulaji?", "Skeittaus"
+    );
 
     public String getKysymys(String vari) {
         this.vari = vari;
@@ -48,12 +66,36 @@ public class Kysymykset {
             }
 
         }
+        if (vari.equals("ruskeat")) {
+            Random random = new Random();
+            indeksi = random.nextInt(ruskeat.size());
+            for (String kysymys : ruskeat.keySet()) {
+                kysymykset.add(kysymys);
+            }
+
+        }
+        if (vari.equals("vihreat")) {
+            Random random = new Random();
+            indeksi = random.nextInt(vihreat.size());
+            for (String kysymys : vihreat.keySet()) {
+                kysymykset.add(kysymys);
+            }
+
+        }
+        if (vari.equals("oranssit")) {
+            Random random = new Random();
+            indeksi = random.nextInt(oranssit.size());
+            for (String kysymys : oranssit.keySet()) {
+                kysymykset.add(kysymys);
+            }
+
+        }
 
         return kysymykset.get(indeksi);
 
     }
 
-    public String getValue() {
+    public String getVastaus() {
         ArrayList<String> vastaukset = new ArrayList<String>();
 
         if (vari.equals("siniset")) {
@@ -68,6 +110,21 @@ public class Kysymykset {
         }
         if (vari.equals("keltaiset")) {
             for (String vastaus : keltaiset.values()) {
+                vastaukset.add(vastaus);
+            }
+        } 
+        if (vari.equals("ruskeat")) {
+            for (String vastaus : ruskeat.values()) {
+                vastaukset.add(vastaus);
+            }
+        } 
+        if (vari.equals("vihreat")) {
+            for (String vastaus : vihreat.values()) {
+                vastaukset.add(vastaus);
+            }
+        }
+        if (vari.equals("oranssit")) {
+            for (String vastaus : oranssit.values()) {
                 vastaukset.add(vastaus);
             }
         }

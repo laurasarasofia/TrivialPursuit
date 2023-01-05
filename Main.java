@@ -5,16 +5,19 @@ public class Main {
         System.out.println("Tärkeä ohje: kirjoita vastauksesi isoilla alkukirjaimilla tarkasti oikein.");
         System.out.println("Pelissä toimivat kategoriat"+ "\n" + "Sininen: maantiede"+ "\n" + "Pinkki: viihde"+ "\n" + "Keltainen: historia ja yhteiskunta"+ "\n" + "Ruskea: taide ja kirjallisuus"+ "\n" + "Vihreä: tiede ja ympäristö"+ "\n" + "Oranssi: urheilu");
 
-        Pelaaja pelaaja = new Pelaaja();
+        //Pelaaja pelaaja = new Pelaaja();
 
-        pelaaja.oikeaVastaus("sininen");
+        //pelaaja.oikeaVastaus("sininen");
 
-        System.out.println(pelaaja.getTilanne());
+        //System.out.println(pelaaja.getTilanne());
 
-        Kysymykset kysymykset = new Kysymykset();
+        //Kysymykset kysymykset = new Kysymykset();
 
+        //System.out.println(kysymykset.getKysymys("keltaiset") + " " + kysymykset.getVastaus());
 
-        System.out.println(kysymykset.getKysymys("keltaiset") + " " + kysymykset.getValue());
+        Pelitila uusipeli = new Pelitila();
+
+        uusipeli.aloitaPeli();
 
     }
 }

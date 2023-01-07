@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,17 +9,38 @@ public class Pelitila {
     String kysymys;
     String vari;
     boolean tilanne = false;
+    int i = 0;
 
     public void aloitaPeli() {
 
-        while (tilanne == pelaaja.kaikkiVarit()) {
-            System.out.println(randomKysymys());
+        System.out.println("Kuinka monta pelaajaa? ");
+        int maara = Integer.parseInt(lukija.nextLine());
+        ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
+
+        for (int i = 0; i < maara; i++) {
+            Pelaaja pelaaja = new Pelaaja();
+            pelaajat.add(pelaaja);
+        }
+
+        while (tilanne == pelaajat.get(i).kaikkiVarit()) {
+            System.out.println("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
+
             String vastaus = lukija.nextLine();
 
             if (oikeaVastaus(vastaus) == true) {
-                pelaaja.oikeaVastaus(vari);
+                pelaajat.get(i).oikeaVastaus(vari);
                 System.out.println(vari + " arvattu oikein!!!");
-                System.out.println(pelaaja.getTilanne());
+                System.out.println(pelaajat.get(i).getTilanne());
+            }
+            if(pelaajat.get(i).kaikkiVarit()==true){
+                System.out.println("Pelaaja" + i + " voitti!");
+                break;
+            }
+            if(i==(pelaajat.size()-1)){
+                i=0;
+            }
+            else{
+                i++;
             }
 
         }

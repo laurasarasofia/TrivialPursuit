@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class Pelaaja {
     boolean siniset = false;
     boolean pinkit = false;
-    boolean ruskeat = false;
+    boolean violetit = false;
     boolean keltaiset= false;
     boolean vihreat = false;
-    boolean oranssit = false;
+    boolean punaiset = false;
 
     public void oikeaVastaus(String vari){
         if(vari.equals("siniset")){
@@ -17,8 +17,8 @@ public class Pelaaja {
         if(vari.equals("pinkit")){
             pinkit=true;
         }
-        if(vari.equals("ruskeat")){
-            ruskeat=true;
+        if(vari.equals("violetit")){
+            violetit=true;
         }
         if(vari.equals("keltaiset")){
             keltaiset=true;
@@ -26,19 +26,19 @@ public class Pelaaja {
         if(vari.equals("vihreat")){
             vihreat=true;
         }
-        if(vari.equals("oranssit")){
-            oranssit=true;
+        if(vari.equals("punaiset")){
+            punaiset=true;
         }
     }
 
     public HashMap<String, Boolean> getTilanne(){
         HashMap<String, Boolean> tilanne = new HashMap<String, Boolean>();
-        tilanne.put("siniset", siniset);
-        tilanne.put("pinkit", pinkit);
-        tilanne.put("ruskeat",ruskeat);
-        tilanne.put("keltaiset", keltaiset);
-        tilanne.put("vihreat",vihreat);
-        tilanne.put("oranssit",oranssit);
+        tilanne.put(Vari.CYAN + "siniset" + Vari.RESET, siniset);
+        tilanne.put(Vari.PINK + "pinkit" + Vari.RESET, pinkit);
+        tilanne.put(Vari.PURPLE + "violetit" + Vari.RESET,violetit);
+        tilanne.put(Vari.YELLOW + "keltaiset" + Vari.RESET, keltaiset);
+        tilanne.put(Vari.GREEN + "vihreat" + Vari.RESET,vihreat);
+        tilanne.put(Vari.TESTI + "punaiset" + Vari.RESET,punaiset);
 
         for (Boolean arvo : tilanne.values()) {
             if(arvo==false){
@@ -51,28 +51,14 @@ public class Pelaaja {
     }
 
     public boolean kaikkiVarit(){
-        boolean onko =false;
 
-        if(siniset==true){
-            onko=true;
-        }
-        if(pinkit==true){
-            onko=true;
-        }
-        if(keltaiset==true){
-            onko=true;
-        }
-        if(ruskeat==true){
-            onko=true;
-        }
-        if(vihreat==true){
-            onko=true;
-        }
-        if(oranssit==true){
-            onko=true;
+        if(siniset==true && pinkit==true && keltaiset==true && violetit==true && vihreat==true && punaiset == true){
+            return true;
         }
 
-        return onko;
+        else{
+            return false;
+        }
     }
 
 }

@@ -21,7 +21,7 @@ public class Kysymykset {
             "Suomen ensimmäinen presidentti? (sukunimi)", "Ståhlberg"
     );
 
-    Map<String,String> ruskeat = Map.of(
+    Map<String,String> violetit = Map.of(
         "Kuka maalasi Mona Lisan?", "Leonardo Da Vinci",
         "Mistä maasta Vivienne Westwood on kotoisin?", "Iso-Britannia",
         "Myydyin musiikkialbumi?", "Thriller"
@@ -32,7 +32,7 @@ public class Kysymykset {
         "Mikä on neljäs olomuoto kiinteän, nesteen ja kaasun lisäksi?", "Plasma",
         "Montako mahaa lehmällä on?", "4"
     );
-    Map<String, String> oranssit = Map.of(
+    Map<String, String> punaiset = Map.of(
         "Missä kaupungissa pidettiin vuoden 2008 olympialaiset?", "Peking",
         "Mikä oli Caitlyn Jennerin olympialaji?", "Kymmenottelu",
         "Mikä on Tony Hawkin urheilulaji?", "Skeittaus"
@@ -66,10 +66,10 @@ public class Kysymykset {
             }
 
         }
-        if (vari.equals("ruskeat")) {
+        if (vari.equals("violetit")) {
             Random random = new Random();
-            indeksi = random.nextInt(ruskeat.size());
-            for (String kysymys : ruskeat.keySet()) {
+            indeksi = random.nextInt(violetit.size());
+            for (String kysymys : violetit.keySet()) {
                 kysymykset.add(kysymys);
             }
 
@@ -82,10 +82,10 @@ public class Kysymykset {
             }
 
         }
-        if (vari.equals("oranssit")) {
+        if (vari.equals("punaiset")) {
             Random random = new Random();
-            indeksi = random.nextInt(oranssit.size());
-            for (String kysymys : oranssit.keySet()) {
+            indeksi = random.nextInt(punaiset.size());
+            for (String kysymys : punaiset.keySet()) {
                 kysymykset.add(kysymys);
             }
 
@@ -113,8 +113,8 @@ public class Kysymykset {
                 vastaukset.add(vastaus);
             }
         } 
-        if (vari.equals("ruskeat")) {
-            for (String vastaus : ruskeat.values()) {
+        if (vari.equals("violetit")) {
+            for (String vastaus : violetit.values()) {
                 vastaukset.add(vastaus);
             }
         } 
@@ -123,8 +123,8 @@ public class Kysymykset {
                 vastaukset.add(vastaus);
             }
         }
-        if (vari.equals("oranssit")) {
-            for (String vastaus : oranssit.values()) {
+        if (vari.equals("punaiset")) {
+            for (String vastaus : punaiset.values()) {
                 vastaukset.add(vastaus);
             }
         }

@@ -54,8 +54,8 @@ public class Swing extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getActionCommand().equals("Vastaa")) {
-            while (tilanne == pelaajat.get(i).kaikkiVarit()) {
+        if (e.getActionCommand().equals("Vastaa") && pelaajat.get(i).kaikkiVarit()== tilanne) {
+           
                 // set(i);
                 // label1.setText("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
                 // System.out.println("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
@@ -67,7 +67,7 @@ public class Swing extends JFrame implements ActionListener {
                 }
                 if (pelaajat.get(i).kaikkiVarit() == true) {
                     System.out.println("Pelaaja" + (i + 1) + " voitti!");
-                    break;
+                    System.exit(0);
                 }
                 if (i == (pelaajat.size() - 1)) {
                     i = 0;
@@ -76,7 +76,7 @@ public class Swing extends JFrame implements ActionListener {
                 }
                 set(i);
 
-            }
+            
         }
 
         if (e.getActionCommand().equals("Aloita peli")) {
@@ -89,12 +89,13 @@ public class Swing extends JFrame implements ActionListener {
             // button1.setText("Vastaa");
 
             // label1.setText(randomKysymys());
+            set(i);
 
         }
         // button1.setVisible(false);
         // add(button2);
         // button2.setVisible(true);
-        set(i);
+        //set(i);
 
     }
 

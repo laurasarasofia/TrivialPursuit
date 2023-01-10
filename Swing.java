@@ -22,17 +22,29 @@ public class Swing extends JFrame implements ActionListener {
     private JButton button1;
     private JLabel label1;
     private JTextField textfield1;
+    private JLabel randomKysymys;
+    private JTextField vastaus;
+    private JButton nappi;
+
 
     public Swing() {
+
         super("Trivial Pursuit");
         setLayout(new FlowLayout());
         button1 = new JButton("Vastaa");
         label1 = new JLabel("Kuinka monta pelaajaa? ");
         textfield1 = new JTextField(10);
+        randomKysymys = new JLabel(randomKysymys());
+        vastaus= new JTextField(10);
+        nappi = new JButton("Vastaa");
         add(label1);
         add(textfield1);
         add(button1);
+        add(randomKysymys);
+        add(vastaus);
+        add(nappi);
         button1.addActionListener(this);
+        nappi.addActionListener(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 100);
         setVisible(true);
@@ -46,16 +58,13 @@ public class Swing extends JFrame implements ActionListener {
                 Pelaaja pelaaja = new Pelaaja();
                 pelaajat.add(pelaaja);
             }
+
             while (tilanne == pelaajat.get(i).kaikkiVarit()) {
-                System.out.println("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
-                String vastaus = lukija.nextLine();
-                if (oikeaVastaus(vastaus) == true) {
+                //System.out.println("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
+                String vastaus1 = vastaus.getText();
+                if (oikeaVastaus(vastaus1) == true) {
                     pelaajat.get(i).oikeaVastaus(vari);
                     System.out.println(vari + " arvattu oikein!!!");
-
-                    //create colorful buttons for getTilanne()
-                    
-
                     System.out.println(pelaajat.get(i).getTilanne());
                 }
                 if (pelaajat.get(i).kaikkiVarit() == true) {

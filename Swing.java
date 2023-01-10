@@ -44,10 +44,7 @@ public class Swing extends JFrame implements ActionListener {
         button1.setBounds(10, 60, 200, 20);
         button1.addActionListener(this);
 
-        button2 = new JButton("Seuraava");
-        add(button2);
-        button2.setBounds(10, 90, 200, 20);
-        button2.addActionListener(this);
+       
 
         setVisible(true);
     }
@@ -60,6 +57,8 @@ public class Swing extends JFrame implements ActionListener {
                 Pelaaja pelaaja = new Pelaaja();
                 pelaajat.add(pelaaja);
             }
+            label1.setText(randomKysymys());
+            button1.setText("Vastaa");
 
             /*while (tilanne == pelaajat.get(i).kaikkiVarit()) {
                 System.out.println("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
@@ -80,10 +79,11 @@ public class Swing extends JFrame implements ActionListener {
                 }
             }*/
         }
-        if (e.getActionCommand().equals("Aloita peli")) {
+        /*if (e.getSource() == button1) {
             label1.setText(randomKysymys());
+            button1.setText("Vastaa");
             System.out.println("");
-        }
+        }*/
     }
 
     public String randomKysymys() {

@@ -10,8 +10,6 @@ public class Kysymykset {
             "Maailman korkein vuori?", "Mount Everest",
             "Maailman pisin joki?", "Amazon",
             "Missä kaupungissa sijaitsee Iisakin kirkko?", "Pietari"
-           
-
             );
 
     Map<String, String> pinkit = Map.of(

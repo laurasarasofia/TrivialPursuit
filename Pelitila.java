@@ -32,14 +32,13 @@ public class Pelitila {
                 System.out.println(vari + " arvattu oikein!!!");
                 System.out.println(pelaajat.get(i).getTilanne());
             }
-            if(pelaajat.get(i).kaikkiVarit()==true){
-                System.out.println("Pelaaja" + i + " voitti!");
+            if (pelaajat.get(i).kaikkiVarit() == true) {
+                System.out.println("Pelaaja" + (i + 1) + " voitti!");
                 break;
             }
-            if(i==(pelaajat.size()-1)){
-                i=0;
-            }
-            else{
+            if (i == (pelaajat.size() - 1)) {
+                i = 0;
+            } else {
                 i++;
             }
 

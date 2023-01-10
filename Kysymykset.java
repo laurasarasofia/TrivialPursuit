@@ -9,7 +9,10 @@ public class Kysymykset {
             "Mikä on Suomen pääkaupunki?", "Helsinki",
             "Maailman korkein vuori?", "Mount Everest",
             "Maailman pisin joki?", "Amazon",
-            "Missä kaupungissa sijaitsee Iisakin kirkko?", "Pietari");
+            "Missä kaupungissa sijaitsee Iisakin kirkko?", "Pietari"
+           
+
+            );
 
     Map<String, String> pinkit = Map.of(
             "Kim Kardashianin pituus senttimetreinä?", "157",
@@ -21,6 +24,7 @@ public class Kysymykset {
             "Euroopan hulluvuosi?", "1848",
             "Mihin Yhdysvallat tiputtivat ensimmäisen atomipommin?", "Hiroshima",
             "Suomen ensimmäinen presidentti? (sukunimi)", "Ståhlberg",
+            
             "Milloin Suomi itsenäistyi?", "1917");
 
     Map<String, String> violetit = Map.of(

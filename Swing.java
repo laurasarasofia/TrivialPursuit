@@ -20,8 +20,6 @@ public class Swing extends JFrame implements ActionListener {
     private JLabel label1;
     private JTextField tf1, tf2;
 
-    private JTextField vastaus;
-
     public Swing() {
 
         super("Trivial Pursuit");
@@ -54,29 +52,29 @@ public class Swing extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getActionCommand().equals("Vastaa") && pelaajat.get(i).kaikkiVarit()== tilanne) {
-           
-                // set(i);
-                // label1.setText("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
-                // System.out.println("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
-                String vastaus1 = tf1.getText();
-                if (oikeaVastaus(vastaus1) == true) {
-                    pelaajat.get(i).oikeaVastaus(vari);
-                    System.out.println(vari + " arvattu oikein!!!");
-                    System.out.println(pelaajat.get(i).getTilanne());
-                }
-                if (pelaajat.get(i).kaikkiVarit() == true) {
-                    System.out.println("Pelaaja" + (i + 1) + " voitti!");
-                    System.exit(0);
-                }
-                if (i == (pelaajat.size() - 1)) {
-                    i = 0;
-                } else {
-                    i++;
-                }
-                set(i);
+        if (e.getActionCommand().equals("Vastaa") && pelaajat.get(i).kaikkiVarit() == tilanne) {
 
-            
+            String vastaus1 = tf1.getText();
+            if (oikeaVastaus(vastaus1) == true) {
+                pelaajat.get(i).oikeaVastaus(vari);
+                JOptionPane.showMessageDialog(null, vari + " oikein!" + "\n" + "Pelaajan " + (i + 1) + " tilanne: " + pelaajat.get(i).getTilanne());               
+                
+                System.out.println(pelaajat.get(i).getTilanne());
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Väärin! Oikea vastaus on: " + kysymykset.getVastaus() );
+            }
+            if (pelaajat.get(i).kaikkiVarit() == true) {
+                System.out.println("Pelaaja" + (i + 1) + " voitti!");
+                System.exit(0);
+            }
+            if (i == (pelaajat.size() - 1)) {
+                i = 0;
+            } else {
+                i++;
+            }
+            set(i);
+
         }
 
         if (e.getActionCommand().equals("Aloita peli")) {
@@ -85,27 +83,12 @@ public class Swing extends JFrame implements ActionListener {
                 Pelaaja pelaaja = new Pelaaja();
                 pelaajat.add(pelaaja);
             }
-            // tf1.setText(null);
-            // button1.setText("Vastaa");
 
-            // label1.setText(randomKysymys());
             set(i);
 
         }
-        // button1.setVisible(false);
-        // add(button2);
-        // button2.setVisible(true);
-        //set(i);
-
     }
 
-    /*
-     * if (e.getSource() == button1) {
-     * label1.setText(randomKysymys());
-     * button1.setText("Vastaa");
-     * System.out.println("");
-     * }
-     */
     public void set(int i) {
         tf1.setText(null);
         button1.setText("Vastaa");

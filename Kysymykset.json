@@ -1,5 +1,152 @@
-{"siniset":[
-    {"kysymys" : "Mikä on suomen pääkaupunki?","vastaus": "Helsinki"},
-    {"kysymys" : "Maailman pisin joki?","vastaus" : "Amazon"},
-    {"kysymys": "Maailman korkein vuori?", "vastaus": "Mount Everest"}
-]}
+{
+    "kysymykset": {
+        "siniset": [
+            {
+                "kysymys": "Mikä on Suomen pääkaupunki?",
+                "vastaus": "Helsinki"
+            },
+            {
+                "kysymys": "Maailman korkein vuori?",
+                "vastaus": "Mount Everest"
+            },
+            {
+                "kysymys": "Maailman pisin joki?",
+                "vastaus": "Amazon"
+            },
+            {
+                "kysymys": "Missä kaupungissa sijaitsee Iisakin kirkko?",
+                "vastaus": "Pietari"
+            },
+            {
+                "kysymys": "Kuinka monta aikavyöhykettä Venäjällä on?",
+                "vastaus": "11"
+            },
+            {
+                "kysymys": "Mikä on Japanin kansalliskukka?",
+                "vastaus": "Kirsikankukka"
+            },
+            {
+                "kysymys": "Mikä oli Istanbulin nimi ennen vuotta 1923?",
+                "vastaus": "Konstantinopoli"
+            },
+            {
+                "kysymys": "Kuinka monta raitaa Yhdysvaltain lipussa on?",
+                "vastaus": "13"
+            },
+            {
+                "kysymys": "Millä valtiolla on eniten saaria?",
+                "vastaus": "Ruotsi"
+            },
+            {
+                "kysymys": "Mikä on maailman pienin valtio?",
+                "vastaus": "Vatikaani"
+            },
+            {
+                "kysymys": "Mikä on maapallon syvin kohta?",
+                "vastaus": "Mariaanien hauta"
+            },
+            {
+                "kysymys": "Mikä on Irlannin kansalliskukka?",
+                "vastaus": "Kolmiapila"
+            },
+            {
+                "kysymys": "Mikä on Thaimaan suurin saari?",
+                "vastaus": "Ko Phuket"
+            },
+            {
+                "kysymys": "Mikä on Kuuban pääkaupunki?",
+                "vastaus": "Havanna"
+            }
+        ],
+        "pinkit": [
+            {
+                "kysymys": "Kim Kardashianin pituus senttimetreinä?",
+                "vastaus": "157"
+            },
+            {
+                "kysymys": "Ensimmäisen Harry Potter elokuvan julkaisuvuosi?",
+                "vastaus": "2001"
+            },
+            {
+                "kysymys": "Spotifyn kuunnelluin kappale?",
+                "vastaus": "Blinding Lights"
+            },
+            {
+                "kysymys": "Kuka näyttelee Frendit-sarjassa Chandleria?",
+                "vastaus": "Matthew Perry"
+            }
+        ],
+        "keltaiset": [
+            {
+                "kysymys": "Euroopan hulluvuosi?",
+                "vastaus": "1848"
+            },
+            {
+                "kysymys": "Mihin Yhdysvallat tiputtivat ensimmäisen atomipommin?",
+                "vastaus": "Hiroshima"
+            },
+            {
+                "kysymys": "Suomen ensimmäinen presidentti? (sukunimi)",
+                "vastaus": "Ståhlberg"
+            },
+            {
+                "kysymys": "Milloin Suomi itsenäistyi?",
+                "vastaus": "1917"
+            }
+        ],
+        "violetit": [
+            {
+                "kysymys": "Kuka maalasi Mona Lisan?",
+                "vastaus": "Leonardo Da Vinci"
+            },
+            {
+                "kysymys": "Mistä maasta Vivienne Westwood on kotoisin?",
+                "vastaus": "Iso-Britannia"
+            },
+            {
+                "kysymys": "Myydyin musiikkialbumi?",
+                "vastaus": "Thriller"
+            },
+            {
+                "kysymys": "Kuka on säveltänyt teoksen näin puhui Zarathustra?",
+                "vastaus": "Richard Strauss"
+            }
+        ],
+        "vihreat": [
+            {
+                "kysymys": "Mikä on kullan järjestysluku?",
+                "vastaus": "79"
+            },
+            {
+                "kysymys": "Mikä on neljäs olomuoto kiinteän, nesteen ja kaasun lisäksi?",
+                "vastaus": "Plasma"
+            },
+            {
+                "kysymys": "Montako mahaa lehmällä on?",
+                "vastaus": "4"
+            },
+            {
+                "kysymys": "Mikä soluelin vastaa eläinsolun energian tuotannosta?",
+                "vastaus": "Mitokondrio"
+            }
+        ],
+        "punaiset": [
+            {
+                "kysymys": "Missä kaupungissa pidettiin vuoden 2008 olympialaiset?",
+                "vastaus": "Peking"
+            },
+            {
+                "kysymys": "Mikä oli Caitlyn Jennerin olympialaji?",
+                "vastaus": "Kymmenottelu"
+            },
+            {
+                "kysymys": "Mikä on Tony Hawkin urheilulaji?",
+                "vastaus": "Skeittaus"
+            },
+            {
+                "kysymys": "Mikä on Sebastian Ahon kasvattajaseura?",
+                "vastaus": "Kärpät"
+            }
+        ]
+    }
+}

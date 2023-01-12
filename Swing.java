@@ -57,7 +57,7 @@ public class Swing extends JFrame implements ActionListener {
             String vastaus1 = tf1.getText();
             if (oikeaVastaus(vastaus1) == true) {
                 pelaajat.get(i).oikeaVastaus(vari);
-                JOptionPane.showMessageDialog(null, vari + " oikein!" + "\n" + "Pelaajan " + (i + 1) + " tilanne: " + pelaajat.get(i).getTilanne());               
+                JOptionPane.showMessageDialog(null, vari + " oikein!" );               
                 
                 System.out.println(pelaajat.get(i).getTilanne());
             }

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<kysymykset>
+  <siniset>
+    <kysymys>Mikä on Suomen pääkaupunki?</kysymys>
+    <vastaus>Helsinki</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Maailman korkein vuori?</kysymys>
+    <vastaus>Mount Everest</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Maailman pisin joki?</kysymys>
+    <vastaus>Amazon</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Missä kaupungissa sijaitsee Iisakin kirkko?</kysymys>
+    <vastaus>Pietari</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Kuinka monta aikavyöhykettä Venäjällä on?</kysymys>
+    <vastaus>11</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Mikä on Japanin kansalliskukka?</kysymys>
+    <vastaus>Kirsikankukka</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Mikä oli Istanbulin nimi ennen vuotta 1923?</kysymys>
+    <vastaus>Konstantinopoli</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Kuinka monta raitaa Yhdysvaltain lipussa on?</kysymys>
+    <vastaus>13</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Millä valtiolla on eniten saaria?</kysymys>
+    <vastaus>Ruotsi</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Mikä on maailman pienin valtio?</kysymys>
+    <vastaus>Vatikaani</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Mikä on maapallon syvin kohta?</kysymys>
+    <vastaus>Mariaanien hauta</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Mikä on Irlannin kansalliskukka?</kysymys>
+    <vastaus>Kolmiapila</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Mikä on Thaimaan suurin saari?</kysymys>
+    <vastaus>Ko Phuket</vastaus>
+  </siniset>
+  <siniset>
+    <kysymys>Mikä on Kuuban pääkaupunki?</kysymys>
+    <vastaus>Havanna</vastaus>
+  </siniset>
+  <pinkit>
+    <kysymys>Kim Kardashianin pituus senttimetreinä?</kysymys>
+    <vastaus>157</vastaus>
+  </pinkit>
+  <pinkit>
+    <kysymys>Ensimmäisen Harry Potter elokuvan julkaisuvuosi?</kysymys>
+    <vastaus>2001</vastaus>
+  </pinkit>
+  <pinkit>
+    <kysymys>Spotifyn kuunnelluin kappale?</kysymys>
+    <vastaus>Blinding Lights</vastaus>
+  </pinkit>
+  <pinkit>
+    <kysymys>Kuka näyttelee Frendit-sarjassa Chandleria?</kysymys>
+    <vastaus>Matthew Perry</vastaus>
+  </pinkit>
+  <keltaiset>
+    <kysymys>Euroopan hulluvuosi?</kysymys>
+    <vastaus>1848</vastaus>
+  </keltaiset>
+  <keltaiset>
+    <kysymys>Mihin Yhdysvallat tiputtivat ensimmäisen atomipommin?</kysymys>
+    <vastaus>Hiroshima</vastaus>
+  </keltaiset>
+  <keltaiset>
+    <kysymys>Suomen ensimmäinen presidentti? (sukunimi)</kysymys>
+    <vastaus>Ståhlberg</vastaus>
+  </keltaiset>
+  <keltaiset>
+    <kysymys>Milloin Suomi itsenäistyi?</kysymys>
+    <vastaus>1917</vastaus>
+  </keltaiset>
+  <violetit>
+    <kysymys>Kuka maalasi Mona Lisan?</kysymys>
+    <vastaus>Leonardo Da Vinci</vastaus>
+  </violetit>
+  <violetit>
+    <kysymys>Mistä maasta Vivienne Westwood on kotoisin?</kysymys>
+    <vastaus>Iso-Britannia</vastaus>
+  </violetit>
+  <violetit>
+    <kysymys>Myydyin musiikkialbumi?</kysymys>
+    <vastaus>Thriller</vastaus>
+  </violetit>
+  <violetit>
+    <kysymys>Kuka on säveltänyt teoksen näin puhui Zarathustra?</kysymys>
+    <vastaus>Richard Strauss</vastaus>
+  </violetit>
+  <vihreat>
+    <kysymys>Mikä on kullan järjestysluku?</kysymys>
+    <vastaus>79</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Mikä on neljäs olomuoto kiinteän, nesteen ja kaasun lisäksi?</kysymys>
+    <vastaus>Plasma</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Montako mahaa lehmällä on?</kysymys>
+    <vastaus>4</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Mikä soluelin vastaa eläinsolun energian tuotannosta?</kysymys>
+    <vastaus>Mitokondrio</vastaus>
+  </vihreat>
+  <punaiset>
+    <kysymys>Missä kaupungissa pidettiin vuoden 2008 olympialaiset?</kysymys>
+    <vastaus>Peking</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä oli Caitlyn Jennerin olympialaji?</kysymys>
+    <vastaus>Kymmenottelu</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä on Tony Hawkin urheilulaji?</kysymys>
+    <vastaus>Skeittaus</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä on Sebastian Ahon kasvattajaseura?</kysymys>
+    <vastaus>Kärpät</vastaus>
+  </punaiset>
+</kysymykset>

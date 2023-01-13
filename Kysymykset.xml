@@ -33,6 +33,10 @@
     <vastaus>13</vastaus>
   </siniset>
   <siniset>
+    <kysymys>Mikä on maailman suurin järvi?</kysymys>
+    <vastaus>Superior</vastaus> 
+  </siniset>
+  <siniset>
     <kysymys>Millä valtiolla on eniten saaria?</kysymys>
     <vastaus>Ruotsi</vastaus>
   </siniset>
@@ -59,6 +63,22 @@
   <pinkit>
     <kysymys>Kim Kardashianin pituus senttimetreinä?</kysymys>
     <vastaus>157</vastaus>
+  </pinkit>
+  <pinkit>
+    <kysymys>Missä maassa Rihanna on syntynyt?</kysymys>
+    <vastaus>Barbados</vastaus>
+  </pinkit>
+  <pinkit>
+    <kysymys>Mikä on ensimmäinen Disneyn elokuva?</kysymys>
+    <vastaus>Lumikki</vastaus>
+  </pinkit>
+  <pinkit>
+    <kysymys>Kuka oli John Lennonin vaimo?</kysymys>
+    <vastaus>Yoko Ono</vastaus>
+  </pinkit>
+  <pinkit>
+    <kysymys>Missä maassa Justin Bieber on syntynyt?</kysymys>
+    <vastaus>Kanada</vastaus>
   </pinkit>
   <pinkit>
     <kysymys>Ensimmäisen Harry Potter elokuvan julkaisuvuosi?</kysymys>
@@ -88,6 +108,22 @@
     <kysymys>Milloin Suomi itsenäistyi?</kysymys>
     <vastaus>1917</vastaus>
   </keltaiset>
+  <keltaiset>
+    <kysymys> Milloin keskiolut tuli kauppoihin Suomessa?</kysymys>
+    <vastaus>1969</vastaus>
+  </keltaiset>
+  <keltaiset>
+    <kysymys>Milloin Suomi liittyi EU:hun?</kysymys>
+    <vastaus>1995</vastaus>
+  </keltaiset>
+  <keltaiset>
+    <kysymys>Mikä on Aleksei Navalnyin ammatti?</kysymys>
+    <vastaus>Juristi</vastaus>
+  </keltaiset>
+  <keltaiset>
+    <kysymys>Missä maassa Melania Trump on syntynyt?</kysymys>
+    <vastaus>Slovenia</vastaus>
+  </keltaiset>
   <violetit>
     <kysymys>Kuka maalasi Mona Lisan?</kysymys>
     <vastaus>Leonardo Da Vinci</vastaus>
@@ -101,6 +137,30 @@
     <vastaus>Thriller</vastaus>
   </violetit>
   <violetit>
+    <kysymys>Myydyin kirja?</kysymys>
+    <vastaus>Raamattu</vastaus>  
+  </violetit>
+  <violetit>
+    <kysymys>Tämä kirjailija unelmoi lääkärin urasta ennen kuin oli bussi onnettomuudessa ja loukkaantui pahasti. Kuka hän on?</kysymys>
+    <vastaus>Frida Kahlo</vastaus>
+  </violetit>
+  <violetit>
+    <kysymys>Mikä satu löytyy lähes jokaisesta kulttuurista ja kielestä?</kysymys>
+    <vastaus>Tuhkimo</vastaus>
+  </violetit>
+  <violetit>
+    <kysymys>Claude Monetin kuuluisin maalaus?</kysymys>
+    <vastaus>Lummelampi</vastaus> 
+  </violetit>
+  <violetit>
+    <kysymys>Mikä on ensimmäinen kirjain englannin aakkosissa?</kysymys>
+    <vastaus>A</vastaus>
+  </violetit>
+  <violetit>
+    <kysymys>Mikä on viimeinen kirjain englannin aakkosissa?</kysymys>
+    <vastaus>Z</vastaus>
+  </violetit>
+  <violetit>
     <kysymys>Kuka on säveltänyt teoksen näin puhui Zarathustra?</kysymys>
     <vastaus>Richard Strauss</vastaus>
   </violetit>
@@ -109,12 +169,40 @@
     <vastaus>79</vastaus>
   </vihreat>
   <vihreat>
+    <kysymys>Mikä on Ilveksen latinan kielinen nimi?</kysymys>
+    <vastaus>Lynx lynx</vastaus> 
+  </vihreat>
+  <vihreat>
+    <kysymys>Mistä sanoista WWW muodostuu?</kysymys>
+    <vastaus>World Wide Web</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Minkä muotoinen on Stop-merkki?</kysymys>
+    <vastaus>Kahdeksankulmio</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Kuinka monta kieltä kirjoitetaan oikealta vasemmalle?</kysymys>
+    <vastaus>12</vastaus>
+  </vihreat>
+  <vihreat>
     <kysymys>Mikä on neljäs olomuoto kiinteän, nesteen ja kaasun lisäksi?</kysymys>
     <vastaus>Plasma</vastaus>
   </vihreat>
   <vihreat>
     <kysymys>Montako mahaa lehmällä on?</kysymys>
     <vastaus>4</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Kuka oli ensimmäinen nainen, joka voitti Nobelin?</kysymys>
+    <vastaus>Marie Curie</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Mikä on kuumin planeetta? </kysymys>
+    <vastaus>Venus</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Mikä on isoin planeetta?</kysymys>
+    <vastaus>Jupiter</vastaus>
   </vihreat>
   <vihreat>
     <kysymys>Mikä soluelin vastaa eläinsolun energian tuotannosta?</kysymys>
@@ -135,5 +223,17 @@
   <punaiset>
     <kysymys>Mikä on Sebastian Ahon kasvattajaseura?</kysymys>
     <vastaus>Kärpät</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä eläin on Porschen logossa?</kysymys>
+    <vastaus>Hevonen</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä valtio on osallistunut jokaisiin Olympialaisiin Kreikan lisäksi?</kysymys>
+    <vastaus>Australia</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Kuinka monta pistettä Michael Jordan teki ensimmäisessä NBA pelissään?</kysymys>
+    <vastaus>16</vastaus>
   </punaiset>
 </kysymykset>

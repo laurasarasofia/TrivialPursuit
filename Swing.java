@@ -1,8 +1,15 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
 import java.util.*;
 import java.util.Random;
 import java.util.Scanner;
@@ -73,7 +80,18 @@ public class Swing extends JFrame implements ActionListener {
             } else {
                 i++;
             }
-            set(i);
+            try {
+                set(i);
+            } catch (ParserConfigurationException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (SAXException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
 
         }
 
@@ -84,24 +102,38 @@ public class Swing extends JFrame implements ActionListener {
                 pelaajat.add(pelaaja);
             }
 
-            set(i);
+            try {
+                set(i);
+            } catch (ParserConfigurationException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (SAXException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
 
         }
     }
 
-    public void set(int i) {
+    public void set(int i) throws ParserConfigurationException, SAXException, IOException {
         tf1.setText(null);
         button1.setText("Vastaa");
         label1.setText("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
 
     }
 
-    public String randomKysymys() {
+    public String randomKysymys() throws ParserConfigurationException, SAXException, IOException {
+        File myObj = new File("Kysymykset.xml");
+        KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
         String[] varit = { "siniset", "pinkit", "keltaiset", "violetit", "vihreat", "punaiset" };
         Random random = new Random();
         int indeksi = random.nextInt(varit.length);
         vari = varit[indeksi];
-        kysymys = kysymykset.getKysymys(varit[indeksi]);
+        kysymys = käsittely.getKysymys(vari);
+        //kysymys = kysymykset.getKysymys(varit[indeksi]);
         return kysymys;
     }
 

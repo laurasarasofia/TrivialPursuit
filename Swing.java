@@ -19,6 +19,8 @@ public class Swing extends JFrame implements ActionListener {
     Scanner lukija = new Scanner(System.in);
     Kysymykset kysymykset = new Kysymykset();
     ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
+    File myObj = new File("Kysymykset.xml");
+    KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
     String kysymys;
     String vari;
     boolean tilanne = false;
@@ -62,14 +64,19 @@ public class Swing extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Vastaa") && pelaajat.get(i).kaikkiVarit() == tilanne) {
 
             String vastaus1 = tf1.getText();
-            if (oikeaVastaus(vastaus1) == true) {
-                pelaajat.get(i).oikeaVastaus(vari);
-                JOptionPane.showMessageDialog(null, vari + " oikein!" );               
-                
-                System.out.println(pelaajat.get(i).getTilanne());
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Väärin! Oikea vastaus on: " + kysymykset.getVastaus() );
+            try {
+                if (oikeaVastaus(vastaus1) == true) {
+                    pelaajat.get(i).oikeaVastaus(vari);
+                    JOptionPane.showMessageDialog(null, vari + " oikein!" );               
+                    
+                    System.out.println(pelaajat.get(i).getTilanne());
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Väärin! Oikea vastaus on: " + käsittely.getVastaus() );
+                }
+            } catch (HeadlessException | ParserConfigurationException | SAXException | IOException e2) {
+                // TODO Auto-generated catch block
+                e2.printStackTrace();
             }
             if (pelaajat.get(i).kaikkiVarit() == true) {
                 System.out.println("Pelaaja" + (i + 1) + " voitti!");
@@ -126,8 +133,7 @@ public class Swing extends JFrame implements ActionListener {
     }
 
     public String randomKysymys() throws ParserConfigurationException, SAXException, IOException {
-        File myObj = new File("Kysymykset.xml");
-        KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
+        
         String[] varit = { "siniset", "pinkit", "keltaiset", "violetit", "vihreat", "punaiset" };
         Random random = new Random();
         int indeksi = random.nextInt(varit.length);
@@ -137,8 +143,9 @@ public class Swing extends JFrame implements ActionListener {
         return kysymys;
     }
 
-    public boolean oikeaVastaus(String vastaus) {
-        if (vastaus.equals(vastaus = kysymykset.getVastaus())) {
+    public boolean oikeaVastaus(String vastaus) throws ParserConfigurationException, SAXException, IOException {
+        String oikeavastaus=käsittely.getVastaus();
+        if (vastaus.equals(oikeavastaus)) {
             return true;
         } else {
             return false;

@@ -17,6 +17,7 @@ public class Main {
         KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
 
         System.out.println(käsittely.getKysymys("pinkit"));
+        System.out.println(käsittely.getVastaus());
 
         //Pelitila uusipeli = new Pelitila();
 

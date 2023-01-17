@@ -114,5 +114,51 @@ public class KysymystenKäsittely {
         // return kysymykset.get(indeksi);
 
     }
+    public String getVastaus() throws ParserConfigurationException, SAXException, IOException {
+        ArrayList<NodeList> vastaukset = tiedostonKäsittely();
+
+        if (vari.equals("siniset")) {
+            NodeList lista = vastaukset.get(0);
+            Node node = lista.item(indeksi);
+            Element element = (Element) node;
+            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+            
+        }
+        if (vari.equals("pinkit")) {
+            NodeList lista = vastaukset.get(1);
+            Node node = lista.item(indeksi);
+            Element element = (Element) node;
+            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+        }
+        if (vari.equals("keltaiset")) {
+            NodeList lista = vastaukset.get(2);
+            Node node = lista.item(indeksi);
+            Element element = (Element) node;
+            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+        }
+        if (vari.equals("violetit")) {
+            NodeList lista = vastaukset.get(3);
+            Node node = lista.item(indeksi);
+            Element element = (Element) node;
+            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+        }
+        if (vari.equals("vihreat")) {
+            NodeList lista = vastaukset.get(4);
+            Node node = lista.item(indeksi);
+            Element element = (Element) node;
+            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+        }
+        if (vari.equals("punaiset")) {
+            NodeList lista = vastaukset.get(5);
+            Node node = lista.item(indeksi);
+            Element element = (Element) node;
+            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+        }
+        
+        else{
+            return "";
+        }
+        //return vastaukset.get(indeksi);
+    }
 
 }

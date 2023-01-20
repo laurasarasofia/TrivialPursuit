@@ -18,6 +18,7 @@ public class KysymystenKäsittely {
     File file;
     String vari;
     int indeksi;
+    //ArrayList<NodeList> nList;
 
     public KysymystenKäsittely(File file) {
         this.file = file;
@@ -48,6 +49,7 @@ public class KysymystenKäsittely {
         return nList;
     }
 
+
     public String getKysymys(String vari) throws ParserConfigurationException, SAXException, IOException {
         this.vari = vari;
         ArrayList<NodeList> kysymykset = tiedostonKäsittely();
@@ -59,7 +61,8 @@ public class KysymystenKäsittely {
             Node node = lista.item(indeksi);
             Element element = (Element) node;
             //System.out.println(element.getElementsByTagName("kysymys").item(0).getTextContent());
-            return element.getElementsByTagName("kysymys").item(0).getTextContent();
+            String palautus = element.getElementsByTagName("kysymys").item(0).getTextContent();
+            return palautus;
         }
 
         if (vari.equals("pinkit")) {
@@ -68,7 +71,8 @@ public class KysymystenKäsittely {
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            return element.getElementsByTagName("kysymys").item(0).getTextContent();
+            String palautus = element.getElementsByTagName("kysymys").item(0).getTextContent();
+            return palautus;
 
         }
         if (vari.equals("keltaiset")) {
@@ -77,8 +81,8 @@ public class KysymystenKäsittely {
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            //System.out.println(element.getElementsByTagName("kysymys").item(0).getTextContent());
-            return element.getElementsByTagName("kysymys").item(0).getTextContent();
+            String palautus = element.getElementsByTagName("kysymys").item(0).getTextContent();
+            return palautus;
 
         }
         if (vari.equals("violetit")) {
@@ -87,8 +91,8 @@ public class KysymystenKäsittely {
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            //System.out.println(element.getElementsByTagName("kysymys").item(0).getTextContent());
-            return element.getElementsByTagName("kysymys").item(0).getTextContent();
+            String palautus = element.getElementsByTagName("kysymys").item(0).getTextContent();
+            return palautus;
 
         }
         if (vari.equals("vihreat")) {
@@ -97,8 +101,8 @@ public class KysymystenKäsittely {
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            //System.out.println(element.getElementsByTagName("kysymys").item(0).getTextContent());
-            return element.getElementsByTagName("kysymys").item(0).getTextContent();
+            String palautus = element.getElementsByTagName("kysymys").item(0).getTextContent();
+            return palautus;
 
         }
         else {
@@ -107,8 +111,8 @@ public class KysymystenKäsittely {
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            //System.out.println(element.getElementsByTagName("kysymys").item(0).getTextContent());
-            return element.getElementsByTagName("kysymys").item(0).getTextContent();
+            String palautus = element.getElementsByTagName("kysymys").item(0).getTextContent();
+            return palautus;
         }
 
         // return kysymykset.get(indeksi);
@@ -121,43 +125,47 @@ public class KysymystenKäsittely {
             NodeList lista = vastaukset.get(0);
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
             
         }
         if (vari.equals("pinkit")) {
             NodeList lista = vastaukset.get(1);
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
         }
         if (vari.equals("keltaiset")) {
             NodeList lista = vastaukset.get(2);
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
         }
         if (vari.equals("violetit")) {
             NodeList lista = vastaukset.get(3);
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
         }
         if (vari.equals("vihreat")) {
             NodeList lista = vastaukset.get(4);
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
         }
-        if (vari.equals("punaiset")) {
+        else{
             NodeList lista = vastaukset.get(5);
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            return element.getElementsByTagName("vastaus").item(0).getTextContent();
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
         }
         
-        else{
-            return "";
-        }
+        
         //return vastaukset.get(indeksi);
     }
 

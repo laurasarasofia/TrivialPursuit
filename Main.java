@@ -23,6 +23,6 @@ public class Main {
 
         //uusipeli.aloitaPeli();
 
-        new Swing();
+        new Kysymystila();
     }
 }

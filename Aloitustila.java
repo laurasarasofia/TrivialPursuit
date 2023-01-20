@@ -14,7 +14,7 @@ import java.util.*;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Swing extends JFrame implements ActionListener {
+public class Aloitustila extends JFrame implements ActionListener {
 
     Scanner lukija = new Scanner(System.in);
     Kysymykset kysymykset = new Kysymykset();
@@ -29,7 +29,8 @@ public class Swing extends JFrame implements ActionListener {
     private JLabel label1;
     private JTextField tf1, tf2;
 
-    public Swing() {
+
+    public Aloitustila() {
 
         super("Trivial Pursuit");
         setLayout(null);
@@ -108,6 +109,7 @@ public class Swing extends JFrame implements ActionListener {
                 Pelaaja pelaaja = new Pelaaja();
                 pelaajat.add(pelaaja);
             }
+       
 
             try {
                 set(i);

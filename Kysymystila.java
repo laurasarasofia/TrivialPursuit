@@ -111,6 +111,7 @@ public class Kysymystila extends JFrame implements ActionListener {
         tf1.setText(null);
         button1.setText("Vastaa");
         label1.setText("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
+  
 
     }
 

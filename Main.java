@@ -22,8 +22,11 @@ public class Main {
         //Pelitila uusipeli = new Pelitila();
 
         //uusipeli.aloitaPeli();
-        new Tilanne();
+        new TilannePaivitys();
+
+
         new Aloitus();
+
         
     }
 }

@@ -22,7 +22,10 @@ public class Main {
         //Pelitila uusipeli = new Pelitila();
 
         //uusipeli.aloitaPeli();
-        new TilannePaivitys();
+        //TilannePaivitys tilanne =new TilannePaivitys(2);
+        //tilanne.muutaTausta("sininen",1);
+        //tilanne.muutaTausta("sininen",2);
+        //tilanne.muutaTausta("keltainen",1);
 
 
         new Aloitus();

@@ -23,6 +23,7 @@ public class Aloitus extends JFrame implements ActionListener {
     private JRadioButton rb1, rb2, rb3, rb4;
     ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
     int i = 0;
+    TilannePaivitys tilannePaivitys;
 
     public Aloitus() {
 
@@ -64,8 +65,14 @@ public class Aloitus extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (rb1.isSelected()) {
-            System.out.println("ei valmis vielä");
+            Pelaaja pelaaja = new Pelaaja();
+            pelaajat.add(pelaaja);
+
+            Tekoaly tekoaly = new Tekoaly();
+            pelaajat.add(tekoaly);
             
+            tilannePaivitys = new TilannePaivitys(2);
+
         }
 
         if (rb2.isSelected()) {
@@ -73,26 +80,42 @@ public class Aloitus extends JFrame implements ActionListener {
                 Pelaaja pelaaja = new Pelaaja();
                 pelaajat.add(pelaaja);
             }
+            tilannePaivitys = new TilannePaivitys(2);
         }
         if (rb3.isSelected()) {
             for (int i = 0; i < 3; i++) {
                 Pelaaja pelaaja = new Pelaaja();
                 pelaajat.add(pelaaja);
             }
+            tilannePaivitys = new TilannePaivitys(3);
         }
         if (rb4.isSelected()) {
             for (int i = 0; i < 4; i++) {
                 Pelaaja pelaaja = new Pelaaja();
                 pelaajat.add(pelaaja);
             }
+            tilannePaivitys = new TilannePaivitys(4);
         }
 
         try {
-            new Kysymystila(pelaajat);
+            new Kysymystila(pelaajat, tilannePaivitys);
+            set();
         } catch (ParserConfigurationException | SAXException | IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+    }
+
+    public void set() throws ParserConfigurationException, SAXException, IOException {
+        label1.setText("Peli alkoi!");
+        label1.setFont(new Font("Arial", Font.BOLD, 20));
+        rb1.setVisible(false);
+        rb2.setVisible(false);
+        rb3.setVisible(false);
+        rb4.setVisible(false);
+        tf1.setVisible(false);
+        button1.setVisible(false);
+
     }
 
 }

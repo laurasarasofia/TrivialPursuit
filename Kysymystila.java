@@ -21,6 +21,7 @@ public class Kysymystila extends JFrame implements ActionListener {
     ArrayList<Pelaaja> pelaajat;
     File myObj = new File("Kysymykset.xml");
     KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
+    
     String kysymys;
     String vari;
     boolean tilanne = false;
@@ -28,15 +29,17 @@ public class Kysymystila extends JFrame implements ActionListener {
     private JButton button1, button2;
     private JLabel label1;
     private JTextField tf1, tf2;
+    TilannePaivitys tilannePaivitys;
 
 
-    public Kysymystila( ArrayList<Pelaaja> pelaajat) throws ParserConfigurationException, SAXException, IOException {
+    public Kysymystila( ArrayList<Pelaaja> pelaajat, TilannePaivitys tilannePaivitys) throws ParserConfigurationException, SAXException, IOException {
 
         
 
         super("Trivial Pursuit");
 
         this.pelaajat=pelaajat;
+        this.tilannePaivitys=tilannePaivitys;
 
         setLayout(null);
         setSize(400, 400);
@@ -70,7 +73,7 @@ public class Kysymystila extends JFrame implements ActionListener {
                 if (oikeaVastaus(vastaus1) == true) {
                     pelaajat.get(i).oikeaVastaus(vari);
                     JOptionPane.showMessageDialog(null, vari + " oikein!" );               
-                    
+                    tilannePaivitys.muutaTausta(vari,i );
                     System.out.println(pelaajat.get(i).getTilanne());
                 }
                 else{

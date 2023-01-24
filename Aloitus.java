@@ -13,8 +13,8 @@ import java.util.*;
 public class Aloitus extends JFrame implements ActionListener {
 
     private JButton button1;
-    private JLabel label1;
-    private JTextField tf1;
+    private JLabel label1, label2;
+    private JTextArea ta1, ta2;
     private JRadioButton rb1, rb2, rb3, rb4;
     ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
     int i = 0;
@@ -28,9 +28,25 @@ public class Aloitus extends JFrame implements ActionListener {
         Container c = getContentPane();
         c.setBackground(Color.darkGray);
 
+        ta1 = new JTextArea("Tervetuloa pelaamaan Trivial Pursuitia!" + "\n" + "Pelissä on tarkoituksena kerätä oikeat vastaukset jokaisesta" + "\n" + "kategoriasta. Suoritettuaan sen peli päättyy." + "\n" + "Tärkeä ohje: kirjoita vastauksesi isoilla alkukirjaimilla tarkasti oikein.");
+        add(ta1);
+        ta1.setBounds(10, 10, 400, 70);
+        ta1.setBackground(Color.darkGray);
+        ta1.setForeground(Color.white);
+
+        ta2 = new JTextArea("Pelissä toimivat kategoriat"+ "\n" + "Sininen: maantiede"+ "\n" + "Pinkki: viihde"+ "\n" + "Keltainen: historia ja yhteiskunta"+ "\n" + "Ruskea: taide ja kirjallisuus"+ "\n" + "Vihreä: tiede ja ympäristö"+ "\n" + "Oranssi: urheilu");
+        add(ta2);
+        ta2.setBounds(10, 85, 400, 115);
+        ta2.setBackground(Color.darkGray);
+        ta2.setForeground(Color.white);
+
+        //label2= new JLabel("Tervetuloa pelaamaan Trivial Pursuitia!" + "\n" + "Pelissä on tarkoituksena kerätä oikeat vastaukset jokaisesta kategoriasta ja suoritettuaan sen peli päättyy.");
+        //add(label2);
+        //label2.setBounds(10, 10, 400, 60);
+        //label2.setForeground(Color.white);
         label1 = new JLabel("Kuinka monta pelaajaa? ");
         add(label1);
-        label1.setBounds(10, 10, 400, 20);
+        label1.setBounds(10, 200, 400, 20);
         label1.setForeground(Color.white);
 
         rb1 = new JRadioButton("Tekoälyä vastaan");
@@ -41,18 +57,15 @@ public class Aloitus extends JFrame implements ActionListener {
         add(rb2);
         add(rb3);
         add(rb4);
-        rb1.setBounds(10, 30, 200, 20);
-        rb2.setBounds(10, 50, 200, 20);
-        rb3.setBounds(10, 70, 200, 20);
-        rb4.setBounds(10, 90, 200, 20);
+        rb1.setBounds(10, 220, 200, 20);
+        rb2.setBounds(10, 240, 200, 20);
+        rb3.setBounds(10, 260, 200, 20);
+        rb4.setBounds(10, 280, 200, 20);
 
-        tf1 = new JTextField(10);
-        add(tf1);
-        tf1.setBounds(10, 30, 200, 20);
 
         button1 = new JButton("Aloita peli");
         add(button1);
-        button1.setBounds(10, 110, 200, 20);
+        button1.setBounds(10, 300, 200, 20);
         button1.addActionListener(this);
 
         setVisible(true);
@@ -115,7 +128,6 @@ public class Aloitus extends JFrame implements ActionListener {
         rb2.setVisible(false);
         rb3.setVisible(false);
         rb4.setVisible(false);
-        tf1.setVisible(false);
         button1.setVisible(false);
 
     }

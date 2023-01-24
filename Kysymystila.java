@@ -3,13 +3,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.xml.sax.SAXException;
-
 import java.util.*;
 import java.util.Random;
 import java.util.Scanner;
@@ -21,25 +17,25 @@ public class Kysymystila extends JFrame implements ActionListener {
     ArrayList<Pelaaja> pelaajat;
     File myObj = new File("Kysymykset.xml");
     KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
-    
+
     String kysymys;
     String vari;
     boolean tilanne = false;
     int i = 0;
-    private JButton button1, button2;
+    private JButton button1;
     private JLabel label1;
-    private JTextField tf1, tf2;
+    private JTextField tf1;
     TilannePaivitys tilannePaivitys;
+    boolean tekoaly;
 
-
-    public Kysymystila( ArrayList<Pelaaja> pelaajat, TilannePaivitys tilannePaivitys) throws ParserConfigurationException, SAXException, IOException {
-
-        
+    public Kysymystila(ArrayList<Pelaaja> pelaajat, TilannePaivitys tilannePaivitys, boolean tekoaly)
+            throws ParserConfigurationException, SAXException, IOException {
 
         super("Trivial Pursuit");
 
-        this.pelaajat=pelaajat;
-        this.tilannePaivitys=tilannePaivitys;
+        this.pelaajat = pelaajat;
+        this.tilannePaivitys = tilannePaivitys;
+        this.tekoaly = tekoaly;
 
         setLayout(null);
         setSize(400, 400);
@@ -60,7 +56,6 @@ public class Kysymystila extends JFrame implements ActionListener {
         button1.setBounds(10, 60, 200, 20);
         button1.addActionListener(this);
 
-
         setVisible(true);
     }
 
@@ -68,73 +63,86 @@ public class Kysymystila extends JFrame implements ActionListener {
 
         if (e.getActionCommand().equals("Vastaa") && pelaajat.get(i).kaikkiVarit() == tilanne) {
 
-            String vastaus1 = tf1.getText();
-            try {
-                if (oikeaVastaus(vastaus1) == true) {
-                    pelaajat.get(i).oikeaVastaus(vari);
-                    JOptionPane.showMessageDialog(null, vari + " oikein!" );               
-                    tilannePaivitys.muutaTausta(vari,i );
-                    System.out.println(pelaajat.get(i).getTilanne());
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Väärin! Oikea vastaus on: " + käsittely.getVastaus() );
-                }
-            } catch (HeadlessException | ParserConfigurationException | SAXException | IOException e2) {
-                // TODO Auto-generated catch block
-                e2.printStackTrace();
-            }
-            if (pelaajat.get(i).kaikkiVarit() == true) {
-                System.out.println("Pelaaja" + (i + 1) + " voitti!");
-                System.exit(0);
-            }
-            if (i == (pelaajat.size() - 1)) {
-                i = 0;
-            } else {
-                i++;
-            }
-            try {
-                set(i);
-            } catch (ParserConfigurationException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            } catch (SAXException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
+            peli();
 
         }
-
-        
     }
 
     public void set(int i) throws ParserConfigurationException, SAXException, IOException {
         tf1.setText(null);
         button1.setText("Vastaa");
         label1.setText("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
-  
 
     }
 
     public String randomKysymys() throws ParserConfigurationException, SAXException, IOException {
-        
+
         String[] varit = { "siniset", "pinkit", "keltaiset", "violetit", "vihreat", "punaiset" };
         Random random = new Random();
         int indeksi = random.nextInt(varit.length);
         vari = varit[indeksi];
         kysymys = käsittely.getKysymys(vari);
-        //kysymys = kysymykset.getKysymys(varit[indeksi]);
+        // kysymys = kysymykset.getKysymys(varit[indeksi]);
         return kysymys;
     }
 
     public boolean oikeaVastaus(String vastaus) throws ParserConfigurationException, SAXException, IOException {
-        String oikeavastaus=käsittely.getVastaus();
+        String oikeavastaus = käsittely.getVastaus();
         if (vastaus.equals(oikeavastaus)) {
             return true;
         } else {
             return false;
         }
     }
+
+    public void tekoalyVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
+        if (pelaajat.get(1).getClass().equals(Tekoaly.class)) {
+            Tekoaly tekoaly = (Tekoaly) pelaajat.get(1);
+            String vastaus = tekoaly.vastaa(vari);
+            tf1.setText(vastaus);
+        }
+    }
+
+    public void peli() {
+        String vastaus1 = tf1.getText();
+        try {
+            if (oikeaVastaus(vastaus1) == true) {
+                pelaajat.get(i).oikeaVastaus(vari);
+                JOptionPane.showMessageDialog(null, vari + " oikein!");
+                tilannePaivitys.muutaTausta(vari, i);
+                System.out.println(pelaajat.get(i).getTilanne());
+            } else {
+                JOptionPane.showMessageDialog(null, "Väärin! Oikea vastaus on: " + käsittely.getVastaus());
+            }
+        } catch (HeadlessException | ParserConfigurationException | SAXException | IOException e2) {
+            // TODO Auto-generated catch block
+            e2.printStackTrace();
+        }
+        if (pelaajat.get(i).kaikkiVarit() == true) {
+            JOptionPane.showMessageDialog(null, "Pelaaja " + (i + 1) + " voitti!");
+            System.exit(0);
+        }
+        if (i == (pelaajat.size() - 1)) {
+            i = 0;
+        } else {
+            i++;
+        }
+        try {
+            set(i);
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if (tekoaly == true && i == 1) {
+            try {
+                tekoalyVastaus(vari);
+            } catch (ParserConfigurationException | SAXException | IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        }
+
+    }
+
+
 }

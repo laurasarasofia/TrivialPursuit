@@ -2,18 +2,13 @@ import javax.swing.JFrame;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
 
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.xml.sax.SAXException;
-
 import java.util.*;
-import java.util.Random;
-import java.util.Scanner;
+
 
 public class Aloitus extends JFrame implements ActionListener {
 
@@ -70,7 +65,7 @@ public class Aloitus extends JFrame implements ActionListener {
 
             Tekoaly tekoaly = new Tekoaly();
             pelaajat.add(tekoaly);
-            
+
             tilannePaivitys = new TilannePaivitys(2);
 
         }
@@ -97,8 +92,15 @@ public class Aloitus extends JFrame implements ActionListener {
             tilannePaivitys = new TilannePaivitys(4);
         }
 
+        for (int i = 0; i < pelaajat.size(); i++) {
+            if (pelaajat.get(i).getClass().equals(Tekoaly.class)) {
+                System.out.println("Pelaat tekoälyä vastaan");
+            }
+
+        }
+
         try {
-            new Kysymystila(pelaajat, tilannePaivitys);
+            new Kysymystila(pelaajat, tilannePaivitys, onkoTekoaly());
             set();
         } catch (ParserConfigurationException | SAXException | IOException e1) {
             // TODO Auto-generated catch block
@@ -116,6 +118,16 @@ public class Aloitus extends JFrame implements ActionListener {
         tf1.setVisible(false);
         button1.setVisible(false);
 
+    }
+
+    public boolean onkoTekoaly(){
+        for (int i = 0; i < pelaajat.size(); i++) {
+            if (pelaajat.get(i).getClass().equals(Tekoaly.class)) {
+                return true;
+            }
+
+        }
+        return false;
     }
 
 }

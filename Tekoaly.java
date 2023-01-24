@@ -16,7 +16,7 @@ public class Tekoaly extends Pelaaja{
 
     public String vastaa(String vari) throws ParserConfigurationException, SAXException, IOException{
         if(vari.equals("sininen")){
-            String kysymys = käsittely.getKysymys("siniset");
+            käsittely.getKysymys("siniset");
             return käsittely.getVastaus();
         }
         else if(vari.equals("pinkki")){

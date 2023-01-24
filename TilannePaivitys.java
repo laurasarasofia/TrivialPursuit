@@ -8,12 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
+//TilannePaivitys-luokka luo uuden ikkunanäkymän, jossa pelilauta näkyy ja siihen päivittyvät myös pelinappulat
 public class TilannePaivitys extends JFrame {
 
-    ArrayList<JButton> nappulat = new ArrayList<JButton>();
-    JButton sininen, pinkki, keltainen, violetti, vihrea, punainen;
-    int pelaajat;
+    ArrayList<JButton> nappulat = new ArrayList<JButton>(); //lista väri-nappuloita varten
+    JButton sininen, pinkki, keltainen, violetti, vihrea, punainen; //nappulat tehdään JButtoneista helpon käsittelyn vuoksi
+    int pelaajat; //pelaajien määrä
 
+    //konstruktori ottaa parametreiksi pelaajien määrän
     public TilannePaivitys(int pelaajat) {
 
         super("Trivial Pursuit");
@@ -21,19 +23,26 @@ public class TilannePaivitys extends JFrame {
         this.pelaajat = pelaajat;
 
         setLayout(null);
-        setSize(400, 400);
+        setSize(500, 400);
         Container c = getContentPane();
         c.setBackground(Color.darkGray);
 
         JLayeredPane pane = getLayeredPane();
-        // creating buttons
 
-        int x = 40;
+        int x = 5; //luodaan muuttujia, jotta voidaan helposti hallita nappuloiden sijaintia pelilaudalla pelaajien määrän muuttuessa
         int y = 40;
         int width = 50;
         int height = 50;
+        int labelY = 20;
+        int labelX = 5;
 
         for (int i = 0; i < pelaajat; i++) {
+
+            JLabel label = new JLabel("Pelaaja " + (i + 1));
+            label.setBounds(labelX, labelY, 100, 20);
+            label.setForeground(Color.white);
+            pane.add(label, new Integer(1));
+            
 
             sininen = new JButton();
             sininen.setBorder(BorderFactory.createLineBorder(Color.blue));
@@ -65,20 +74,16 @@ public class TilannePaivitys extends JFrame {
             punainen.setBounds((x + width), (y + (2 * height)), width, height);
             nappulat.add(punainen);
 
-            x = x + 110;
+            x = x + 105;
+            labelX = labelX + 105;
        
 
         }
-    
-   
-        // adding buttons on pane
 
         for(int i=0; i<nappulat.size(); i++){
             pane.add(nappulat.get(i), new Integer(1));
         }
-   
 
-        // muutaTausta("sininen");
 
         setVisible(true);
     }

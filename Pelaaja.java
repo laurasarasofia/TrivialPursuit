@@ -10,6 +10,7 @@ public class Pelaaja {
     boolean vihreat = false;
     boolean punaiset = false;
 
+    //muuttaa pelaajan tilanteen, kun pelaaja arvaa värin oikein
     public void oikeaVastaus(String vari){
         if(vari.equals("siniset")){
             siniset=true;
@@ -30,7 +31,7 @@ public class Pelaaja {
             punaiset=true;
         }
     }
-
+    //ei käytetä enää
     public HashMap<String, Boolean> getTilanne(){
         HashMap<String, Boolean> tilanne = new HashMap<String, Boolean>();
         tilanne.put(Vari.CYAN + "siniset" + Vari.RESET, siniset);
@@ -49,7 +50,7 @@ public class Pelaaja {
         return tilanne;
 
     }
-
+    //tätä metodia käytetään tarkistamaan onko kaikki varit arvattu, palauttaa boolean arvon
     public boolean kaikkiVarit(){
 
         if(siniset==true && pinkit==true && keltaiset==true && violetit==true && vihreat==true && punaiset == true){

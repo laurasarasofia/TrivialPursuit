@@ -16,27 +16,27 @@ public class KysymystenKäsittely {
     File file;
     String vari;
     int indeksi;
-    //ArrayList<NodeList> nList;
 
+    //konstruktori saa tiedoston, josta kysymykset ja vastaukset haetaan
     public KysymystenKäsittely(File file) {
         this.file = file;
     }
 
     public ArrayList<NodeList> tiedostonKäsittely() throws ParserConfigurationException, SAXException, IOException {
-
+        //xml-tiedoston käsittely
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(file);
         doc.getDocumentElement().normalize();
-        NodeList siniset = doc.getElementsByTagName("siniset");
-        NodeList pinkit = doc.getElementsByTagName("pinkit");
-        NodeList violetit = doc.getElementsByTagName("violetit");
+        NodeList siniset = doc.getElementsByTagName("siniset"); //haetaan sinisen kategorian elementit, joista luodaan NodeList
+        NodeList pinkit = doc.getElementsByTagName("pinkit"); //haetaan pinkin kategorian elementit, joista luodaan NodeList
+        NodeList violetit = doc.getElementsByTagName("violetit"); //jne.
         NodeList keltaiset = doc.getElementsByTagName("keltaiset");
         NodeList vihreat = doc.getElementsByTagName("vihreat");
         NodeList punaiset = doc.getElementsByTagName("punaiset");
         // NamedNodeMap siniset = doc.getElementsByTagName("siniset");
 
-        ArrayList<NodeList> nList = new ArrayList<NodeList>();
+        ArrayList<NodeList> nList = new ArrayList<NodeList>(); //lisätään kaikki NodeListit ArrayListiin
         nList.add(siniset);
         nList.add(pinkit);
         nList.add(violetit);
@@ -44,13 +44,13 @@ public class KysymystenKäsittely {
         nList.add(vihreat);
         nList.add(punaiset);
 
-        return nList;
+        return nList; //luokka palauttaa arraylistin
     }
 
-
+    //metodilla palautetaan halutun värin kysymys
     public String getKysymys(String vari) throws ParserConfigurationException, SAXException, IOException {
         this.vari = vari;
-        ArrayList<NodeList> kysymykset = tiedostonKäsittely();
+        ArrayList<NodeList> kysymykset = tiedostonKäsittely(); //kutsuu tiedostonKäsittely-metodia, joka palauttaa arraylistin
 
         if (vari.equals("siniset")) {
             Random random = new Random();
@@ -58,9 +58,8 @@ public class KysymystenKäsittely {
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
             Element element = (Element) node;
-            //System.out.println(element.getElementsByTagName("kysymys").item(0).getTextContent());
             String palautus = element.getElementsByTagName("kysymys").item(0).getTextContent();
-            return palautus;
+            return palautus; //palauttaa satunnaisen kysymyksen
         }
 
         if (vari.equals("pinkit")) {
@@ -116,6 +115,7 @@ public class KysymystenKäsittely {
         // return kysymykset.get(indeksi);
 
     }
+    //metodilla palautetaan vastaus kysyttyyn kysymykseen, toimii this.vari-muuttujan avulla
     public String getVastaus() throws ParserConfigurationException, SAXException, IOException {
         ArrayList<NodeList> vastaukset = tiedostonKäsittely();
 
@@ -163,8 +163,6 @@ public class KysymystenKäsittely {
             return palautus;
         }
         
-        
-        //return vastaukset.get(indeksi);
     }
 
 }

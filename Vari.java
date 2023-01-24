@@ -1,4 +1,7 @@
 public class Vari {
+
+       //turha luokka
+       
        // Reset
        public static final String RESET = "\033[0m";  // Text Reset
 

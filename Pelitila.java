@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+//luokkaa ei käytetä
+
 public class Pelitila {
     Scanner lukija = new Scanner(System.in);
     Pelaaja pelaaja = new Pelaaja();

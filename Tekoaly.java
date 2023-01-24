@@ -5,38 +5,38 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-public class Tekoaly extends Pelaaja{
+public class Tekoaly extends Pelaaja{ //tekoäly perii pelaajan ominaisuudet
 
-    File myObj = new File("Kysymykset.xml");
+    File myObj = new File("Kysymykset.xml"); //tekoälyllä on pääsy kysymyksiin, jotta se voi vastata
     KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
 
     public Tekoaly(){
 
     }
-
+    //jotta voidaan saada vastaus, pitää kutsua ensin getKysymys-metodia, joka palauttaa kysymyksen
     public String vastaa(String vari) throws ParserConfigurationException, SAXException, IOException{
         if(vari.equals("sininen")){
             käsittely.getKysymys("siniset");
             return käsittely.getVastaus();
         }
         else if(vari.equals("pinkki")){
-            String kysymys = käsittely.getKysymys("pinkit");
+            käsittely.getKysymys("pinkit");
             return käsittely.getVastaus();
         }
         else if(vari.equals("violetti")){
-            String kysymys = käsittely.getKysymys("violetit");
+             käsittely.getKysymys("violetit");
             return käsittely.getVastaus();
         }
         else if(vari.equals("keltainen")){
-            String kysymys = käsittely.getKysymys("keltaiset");
+             käsittely.getKysymys("keltaiset");
             return käsittely.getVastaus();
         }
         else if(vari.equals("vihreä")){
-            String kysymys = käsittely.getKysymys("vihreat");
+             käsittely.getKysymys("vihreat");
             return käsittely.getVastaus();
         }
         else {
-            String kysymys = käsittely.getKysymys("punaiset");
+            käsittely.getKysymys("punaiset");
             return käsittely.getVastaus();
         } 
 

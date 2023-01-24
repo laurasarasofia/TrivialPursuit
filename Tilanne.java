@@ -2,18 +2,18 @@ import java.awt.Container;
 import java.awt.*;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+
 import javax.swing.JPanel;
-import javax.swing.JComponent;
+
 
 public class Tilanne extends JFrame {
- 
+    //tällä luokalla ei tehdä mitään, se oli kokeilu
 
     public Tilanne() {
 
         super("Trivial Pursuit");
         setLayout(null);
-        setSize(400, 400);
+        setSize(500, 400);
         Container c = getContentPane();
         c.setBackground(Color.darkGray);
         setVisible(true);

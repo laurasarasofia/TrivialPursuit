@@ -24,7 +24,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
 
         super("Trivial Pursuit"); //otsikoi ikkunan
         setLayout(null); 
-        setSize(500, 400);
+        setSize(500, 500);
         Container c = getContentPane(); //luodaan Container näkymää varten
         c.setBackground(Color.darkGray);
 

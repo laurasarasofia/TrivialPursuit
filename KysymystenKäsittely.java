@@ -39,8 +39,8 @@ public class KysymystenKäsittely {
         ArrayList<NodeList> nList = new ArrayList<NodeList>(); //lisätään kaikki NodeListit ArrayListiin
         nList.add(siniset);
         nList.add(pinkit);
-        nList.add(violetit);
         nList.add(keltaiset);
+        nList.add(violetit);
         nList.add(vihreat);
         nList.add(punaiset);
 

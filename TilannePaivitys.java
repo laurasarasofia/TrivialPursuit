@@ -13,6 +13,7 @@ public class TilannePaivitys extends JFrame {
 
     ArrayList<JButton> nappulat = new ArrayList<JButton>(); //lista väri-nappuloita varten
     JButton sininen, pinkki, keltainen, violetti, vihrea, punainen; //nappulat tehdään JButtoneista helpon käsittelyn vuoksi
+    
     int pelaajat; //pelaajien määrä
 
     //konstruktori ottaa parametreiksi pelaajien määrän
@@ -23,7 +24,7 @@ public class TilannePaivitys extends JFrame {
         this.pelaajat = pelaajat;
 
         setLayout(null);
-        setSize(500, 400);
+        setSize(500, 500);
         Container c = getContentPane();
         c.setBackground(Color.darkGray);
 
@@ -83,6 +84,9 @@ public class TilannePaivitys extends JFrame {
         for(int i=0; i<nappulat.size(); i++){
             pane.add(nappulat.get(i), new Integer(1));
         }
+
+        
+
 
 
         setVisible(true);

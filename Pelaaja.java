@@ -9,6 +9,7 @@ public class Pelaaja {
     boolean keltaiset= false;
     boolean vihreat = false;
     boolean punaiset = false;
+    int indeksi;
 
     //muuttaa pelaajan tilanteen, kun pelaaja arvaa värin oikein
     public void oikeaVastaus(String vari){
@@ -50,6 +51,14 @@ public class Pelaaja {
         return tilanne;
 
     }
+
+    public void setSijainti(int indeksi){
+        this.indeksi=indeksi;
+    }
+    public int getSijainti(){
+        return indeksi;
+    }
+
     //tätä metodia käytetään tarkistamaan onko kaikki varit arvattu, palauttaa boolean arvon
     public boolean kaikkiVarit(){
 

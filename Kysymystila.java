@@ -166,8 +166,10 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
             indexib2 = pelaajat.get(i).getSijainti() + random - 11;
         } else if (pelaajat.get(i).getSijainti() - random < 0 && pelaajat.get(i).getSijainti() + random < 11) {
             indexib1 = 11 + (pelaajat.get(i).getSijainti() - random);
+            indexib2 = pelaajat.get(i).getSijainti() + random;
         } else if (pelaajat.get(i).getSijainti() + random > 11 && pelaajat.get(i).getSijainti() - random > 0) {
             indexib2 = pelaajat.get(i).getSijainti() + random - 11;
+            indexib1 = pelaajat.get(i).getSijainti() - random;
         } else {
             indexib1 = pelaajat.get(i).getSijainti() - random;
             indexib2 = pelaajat.get(i).getSijainti() + random;

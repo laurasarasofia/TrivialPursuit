@@ -213,9 +213,8 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
     // metodi muuttaa sen valmiiksi textfieldiin, josta käyttäjän pitää painaa
     // vastaus nappia
     public void tekoalyVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
-        if (pelaajat.get(1).getClass().equals(Tekoaly.class)) {
-            Tekoaly tekoaly = (Tekoaly) pelaajat.get(1);
-            String vastaus = tekoaly.vastaa(vari);
+        if (tekoaly == true) {
+            String vastaus = pelaajat.get(1).annaVastaus(vari);
             tf1.setText(vastaus);
             button1.doClick();
         }

@@ -72,7 +72,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
             Pelaaja pelaaja = new Pelaaja();
             pelaajat.add(pelaaja);
 
-            Tekoaly tekoaly = new Tekoaly();
+            Pelaaja tekoaly = new Tekoaly();
             pelaajat.add(tekoaly);
 
             tilannePaivitys = new TilannePaivitys(2); //tämän avulla luodaan pelilauta, jossa on 2 pelaajaa
@@ -124,7 +124,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
 
     public boolean onkoTekoaly(){ //tällä metodilla tarkastetaan onko tekoälyä mukana
         for (int i = 0; i < pelaajat.size(); i++) {
-            if (pelaajat.get(i).getClass().equals(Tekoaly.class)) {
+            if (pelaajat.get(i).onkoAI()==true) {
                 return true;
             }
 

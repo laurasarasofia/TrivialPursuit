@@ -68,19 +68,19 @@ public class Pelaaja {
     }
 
     public String annaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
-        if (vari.equals("sininen")) {
+        if (vari.equals("siniset")) {
             käsittely.getKysymys("siniset");
             return käsittely.getVastaus();
-        } else if (vari.equals("pinkki")) {
+        } else if (vari.equals("pinkit")) {
             käsittely.getKysymys("pinkit");
             return käsittely.getVastaus();
-        } else if (vari.equals("violetti")) {
+        } else if (vari.equals("violetit")) {
             käsittely.getKysymys("violetit");
             return käsittely.getVastaus();
-        } else if (vari.equals("keltainen")) {
+        } else if (vari.equals("keltaiset")) {
             käsittely.getKysymys("keltaiset");
             return käsittely.getVastaus();
-        } else if (vari.equals("vihreä")) {
+        } else if (vari.equals("vihreat")) {
             käsittely.getKysymys("vihreat");
             return käsittely.getVastaus();
         } else {

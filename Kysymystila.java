@@ -111,9 +111,9 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
 
     }
 
-    // metodilla tyhjennetään vastauslaatikko ja annetaan uudelle pelaajalle kysymys
+ 
     public void set(int i) throws ParserConfigurationException, SAXException, IOException {
-        // pahasti solmussa, korjaa toiminnallisuus
+
         if (kierros == 0) {
             tf1.setText(null);
             button1.setText("Vastaa");
@@ -212,7 +212,13 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
     // muutetaan tekoälyn vastaukseksi
     // metodi muuttaa sen valmiiksi textfieldiin, josta käyttäjän pitää painaa
     // vastaus nappia
-    public void tekoalyVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
+    public void tekoalyVastaus() throws ParserConfigurationException, SAXException, IOException {
+        
+        if(kierros>0){
+            nappulat.get(indexib1).doClick(3000);
+            vari = buttons.get(indexib1).getVari();
+        }
+    
         if (tekoaly == true) {
             String vastaus = pelaajat.get(1).annaVastaus(vari);
             tf1.setText(vastaus);
@@ -257,7 +263,7 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
         }
         if (tekoaly == true && i == 1) { // jos toinen pelaaja on tekoäly, kutsutaan tekoälyn vastaus metodia
             try {
-                tekoalyVastaus(vari);
+                tekoalyVastaus();
             } catch (ParserConfigurationException | SAXException | IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();

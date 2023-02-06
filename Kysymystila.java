@@ -53,12 +53,13 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
         Container c = getContentPane();
         c.setBackground(Color.darkGray);
 
-        // ArrayList<Color> reunavarit = new ArrayList<Color>();
+        //lisää listaan värit, joidenka avulla merkataan pelilaudalle kenen vuoro on kyseessä
         reunavarit.add(Color.orange);
         reunavarit.add(Color.black);
         reunavarit.add(Color.white);
         reunavarit.add(Color.cyan);
 
+        //kutsuu metodia, joka luo pelilaudan
         pelilauta();
 
         // label1 näyttää ensimmäisen kysymyksen ja kuka pelaajista on vuorossa
@@ -90,8 +91,9 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
             peli();
 
         }
+        // painettaessa vaihtoehto nappeja kutsutaan valittukysymys-metodia oikealla indeksillä
         if (e.getSource() == nappulat.get(indexib1)) {
-            indeksi = indexib1;
+            indeksi = indexib1; //muutetaan indeksi, jotta voidaan muuttaa nappulan reunat oikealle kohdalle
             try {
                 valittuKysymys(indexib1);
             } catch (ParserConfigurationException | SAXException | IOException e1) {
@@ -113,57 +115,61 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
 
  
     public void set(int i) throws ParserConfigurationException, SAXException, IOException {
-
+        //testaa onko pelin ensimmäinen kierros käynnissä, koska ensimmäisellä kierroksella paikat pelilaudalla arvotaan eikä vielä valita
         if (kierros == 0) {
             tf1.setText(null);
             button1.setText("Vastaa");
             label1.setText("Vuoro: pelaaja" + (i + 1) + " " + randomKysymys());
             pelaajat.get(i).setSijainti(indeksi);
-            nappulat.get(indeksi).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5));
+            nappulat.get(indeksi).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5)); //muuttaa nappulan reunat, jotta näkyy kenen vuoro on kyseessä
         }
-
+        //muilla kierroksilla kutsutaan vaihtoehdot-metodia, jonka avulla toteutetaan kysymys vaihtoehdot
         else {
             vaihtoehdot();
-            nappulat.get(indexib1).setBorder(BorderFactory.createDashedBorder(Color.black, 5, 5));
+            nappulat.get(indexib1).setBorder(BorderFactory.createDashedBorder(Color.black, 5, 5)); //merkitsee vaihtoehtoa
             nappulat.get(indexib2).setBorder(BorderFactory.createDashedBorder(Color.black, 5, 5));
             nappulat.get(indexib1).addActionListener(this);
             nappulat.get(indexib2).addActionListener(this);
         }
 
     }
-
+    //metodin avulla  hallitaan pelilaudan nappula kohtaisia reunoja
+    //sekä annetaan kysymykset
     public void valittuKysymys(int j) throws ParserConfigurationException, SAXException, IOException{
-        nappulat.get(pelaajat.get(i).getSijainti()).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 0));
-        int sijainti= pelaajat.get(i).getSijainti();
+        //poistaa pelaajan aikaisemman sijainnin pelilaudalla, muuttamalla reunan paksuuden 0:ksi
+        nappulat.get(pelaajat.get(i).getSijainti()).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 0)); 
+        int sijainti= pelaajat.get(i).getSijainti(); //tallentaa pelaajan vanhan sijainnin, jotta tiedetään peittääkö se muiden pelaajien sijainteja
 
         tf1.setText(null);
         vari = buttons.get(j).getVari();
         label1.setText("Vuoro: pelaaja" + (i + 1) + " " + käsittely.getKysymys(vari));
         pelaajat.get(i).setSijainti(j);
         
+        //käydään pelaajien sijainnit läpi, jotta muiden pelaajien sijainnit pysyvät pelilaudalla
         for(int i=0; i<pelaajat.size(); i++){
-            if(pelaajat.get(i).getSijainti()==indexib1){
+            if(pelaajat.get(i).getSijainti()==indexib1){ //jos toinen vaihtoehto on muun pelaajan sijainti, muutetaan reunat pelaajan reunaväriksi
                 nappulat.get(indexib1).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5));
                 
             }
-            else if(pelaajat.get(i).getSijainti()==indexib2){
+            else if(pelaajat.get(i).getSijainti()==indexib2){ //jos toinen vaihtoehto on muun pelaajan sijainti, muutetaan reunat pelaajan reunaväriksi
                 nappulat.get(indexib2).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5));
             }
 
-            else{
+            else{ //jos ei ole muun pelaajan sijainti, otetaan reunat pois muuttamalla paksuus 0:ksi
                 nappulat.get(indexib1).setBorder(BorderFactory.createLineBorder(Color.black, 0));
                 nappulat.get(indexib2).setBorder(BorderFactory.createLineBorder(Color.black, 0));
             }
         }
         for (int i=0; i<pelaajat.size(); i++){
-            if(pelaajat.get(i).getSijainti()==sijainti){
+            if(pelaajat.get(i).getSijainti()==sijainti){ //jos kaksi pelaajista on ollut päällekkäin pelilaudalla, pelaajan poistuessa
+                                                //muutetaan reunat edellisen pelaajan reunaväriksi
                 nappulat.get(sijainti).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5));
             }
         }
-     
+        //uuden sijainnin reunat muutetaan pelaajan reunaväriksi
         nappulat.get(j).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5));
     }
-
+    //metodin avulla luodaan pelilaudalle kaksi kysymysvaihtoehtoa arpomalla silmäluku
     public void vaihtoehdot() {
         int random = new Random().nextInt(1, 6);
 
@@ -273,9 +279,11 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
     }
 
     public void pelilauta() {
+        // luodaan pelilauta ja lisätään Nappula-luokan nappulat edustamaan sijainteja. Nappula saa värin ja sijainnin parametreina
+        //lauta muodostuu 12 nappulasta, joista 2 on sinisiä, 2 on pinkkejä, 2 on keltaisia, 2 on violetteja, 2 on vihreitä ja 2 on punaisia
         int x = 10;
         int y = 100;
-
+        
         for (int i = 0; i < 2; i++) {
             varit.add("siniset");
             varit.add("pinkit");
@@ -284,7 +292,7 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
             varit.add("vihreat");
             varit.add("punaiset");
         }
-
+        //for-loopissa muutetaan nappuloiden sijainteja, jotta saadaan oikean muotoinen pelilauta
         for (int i = 0; i < varit.size(); i++) {
             Nappula nappula = new Nappula(varit.get(i), x, y);
             // x=x+50;

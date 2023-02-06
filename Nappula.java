@@ -2,6 +2,8 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
+
+//Nappula-luokka on pelilaudan helppoa käsittelyä varten luotu luokka, joka sisältää nappulan väriä vastaavan JButtonin
 public class Nappula {
     String vari;
     JButton nappula;
@@ -9,7 +11,7 @@ public class Nappula {
     int height =50;
     int x;
     int y;
-
+    //konstruktori ottaa parametreikseen nappulan väriä vastaavan Stringin ja sijainnin
     public Nappula(String vari, int x, int y) {
         this.vari = vari;
         this.x = x;
@@ -36,17 +38,19 @@ public class Nappula {
             nappula.setBackground(Color.red);
         }
     }
+    //palauttaa nappulan JButtonin
     public JButton getNappula(){
         return nappula;
     }
-
+    //palauttaa nappulan sijainnin x-koordinaatin
     public int getX() {
         return x;
     }
-
+    //palauttaa nappulan sijainnin y-koordinaatin
     public int getY() {
         return y;
     }
+    //palauttaa nappulan väriä vastaavan Stringin
     public String getVari(){
         return vari;
     }

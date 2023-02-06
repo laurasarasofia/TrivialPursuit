@@ -44,11 +44,11 @@ public class Pelaaja {
             punaiset = true;
         }
     }
-
+    //tämän avulla tallennetaan pelaajan sijainti pelilaudalla
     public void setSijainti(int indeksi) {
         this.indeksi = indeksi;
     }
-
+    //tämän avulla saadaan pelaajan sijainti pelilaudalla
     public int getSijainti() {
         return indeksi;
     }
@@ -66,7 +66,7 @@ public class Pelaaja {
             return false;
         }
     }
-
+    //käytetään tekoälyn vastauksen generoimiseen
     public String annaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
         if (vari.equals("siniset")) {
             käsittely.getKysymys("siniset");

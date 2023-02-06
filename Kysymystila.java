@@ -134,6 +134,7 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
 
     public void valittuKysymys(int j) throws ParserConfigurationException, SAXException, IOException{
         nappulat.get(pelaajat.get(i).getSijainti()).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 0));
+        int sijainti= pelaajat.get(i).getSijainti();
 
         tf1.setText(null);
         vari = buttons.get(j).getVari();
@@ -154,12 +155,17 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
                 nappulat.get(indexib2).setBorder(BorderFactory.createLineBorder(Color.black, 0));
             }
         }
+        for (int i=0; i<pelaajat.size(); i++){
+            if(pelaajat.get(i).getSijainti()==sijainti){
+                nappulat.get(sijainti).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5));
+            }
+        }
      
         nappulat.get(j).setBorder(BorderFactory.createLineBorder(reunavarit.get(i), 5));
     }
 
     public void vaihtoehdot() {
-        int random = new Random().nextInt(6);
+        int random = new Random().nextInt(1, 6);
 
         if ((pelaajat.get(i).getSijainti() - random) < 0 && pelaajat.get(i).getSijainti() + random > 11) {
             indexib1 = 11 + (pelaajat.get(i).getSijainti() - random);

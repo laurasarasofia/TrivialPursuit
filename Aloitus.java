@@ -66,12 +66,12 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         button1.setBounds(10, 300, 200, 20);
         button1.addActionListener(this);
         
-        sekuntikello = new JLabel();
+        sekuntikello = new JLabel(); //luodaan sekuntikello
         add(sekuntikello);
         sekuntikello.setBounds(420, 10, 200, 20);
         sekuntikello.setForeground(Color.white);
 
-        Timer currentTime = new Timer();
+        Timer currentTime = new Timer(); //luodaan Timer, jonka avulla näytetään pelin aloittamisesta kulunut aika
         TimerTask task = new TimerTask() {
             @Override
             public void run() {

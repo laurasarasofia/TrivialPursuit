@@ -2,7 +2,6 @@
 //import java.util.ArrayList;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 //import java.util.Map.Entry;
 
 import javax.xml.parsers.ParserConfigurationException;

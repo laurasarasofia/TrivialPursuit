@@ -1,14 +1,7 @@
 import javax.swing.JFrame;
-import javax.swing.text.DateFormatter;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.time.Clock;
-import java.time.Duration;
-import java.time.format.DateTimeFormatter;
-
 import javax.swing.*;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
@@ -22,9 +15,6 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
     private JLabel label1, sekuntikello; //luodaan tarvittavat toiminnot käyttöliittymää varten
     private JTextArea ta1, ta2;
     private JRadioButton rb1, rb2, rb3, rb4;
-    private Timer timer;
-    private int currentSecond;
-    private Calendar calendar;
     ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>(); //luodaan lista pelaajista
     int i = 0;
     TilannePaivitys tilannePaivitys;
@@ -160,10 +150,6 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
 
         }
         return false;
-    }
-    private void reset(){
-        calendar = Calendar.getInstance();
-        currentSecond = calendar.get(Calendar.SECOND);
     }
     public String convertSecondsToHMmSs(long seconds) {
         long s = seconds % 60;

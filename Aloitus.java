@@ -1,21 +1,30 @@
 import javax.swing.JFrame;
+import javax.swing.text.DateFormatter;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.Duration;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.*;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import java.util.*;
+import java.util.Timer;
 
 
 public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka, joka perii JFrame-luokan, joka toimii ikkunanäkymänä
 
     private JButton button1;
-    private JLabel label1; //luodaan tarvittavat toiminnot käyttöliittymää varten
+    private JLabel label1, sekuntikello; //luodaan tarvittavat toiminnot käyttöliittymää varten
     private JTextArea ta1, ta2;
     private JRadioButton rb1, rb2, rb3, rb4;
+    private Timer timer;
+    private int currentSecond;
+    private Calendar calendar;
     ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>(); //luodaan lista pelaajista
     int i = 0;
     TilannePaivitys tilannePaivitys;
@@ -23,6 +32,9 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
     public Aloitus() {
 
         super("Trivial Pursuit"); //otsikoi ikkunan
+
+        long start = System.currentTimeMillis();
+
         setLayout(null); 
         setSize(500, 500);
         Container c = getContentPane(); //luodaan Container näkymää varten
@@ -63,6 +75,20 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         add(button1);   //luodaan nappi, jolla aloitetaan peli
         button1.setBounds(10, 300, 200, 20);
         button1.addActionListener(this);
+        
+        sekuntikello = new JLabel();
+        add(sekuntikello);
+        sekuntikello.setBounds(420, 10, 200, 20);
+        sekuntikello.setForeground(Color.white);
+
+        Timer currentTime = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                sekuntikello.setText(convertSecondsToHMmSs((System.currentTimeMillis() - start)/1000));
+            }
+        };
+        currentTime.scheduleAtFixedRate(task, 0, 1000);
 
         setVisible(true);
     }
@@ -110,6 +136,9 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
             e1.printStackTrace();
         }
     }
+    
+
+
 
     public void set() throws ParserConfigurationException, SAXException, IOException {
         label1.setText("Peli alkoi!"); //tämä metodi muuttaa aloitusikkunan tekstin pelin alettua ja piilottaa näkymästä tarpeettomat asiat
@@ -119,6 +148,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         rb3.setVisible(false);
         rb4.setVisible(false);
         button1.setVisible(false);
+        //sekuntikello.setVisible(true);
 
     }
 
@@ -131,5 +161,19 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         }
         return false;
     }
+    private void reset(){
+        calendar = Calendar.getInstance();
+        currentSecond = calendar.get(Calendar.SECOND);
+    }
+    public String convertSecondsToHMmSs(long seconds) {
+        long s = seconds % 60;
+        long m = (seconds / 60) % 60;
+        long h = (seconds / (60 * 60)) % 24;
+        return String.format("%d:%02d:%02d", h,m,s);
+    }
+
+
+
 
 }
+

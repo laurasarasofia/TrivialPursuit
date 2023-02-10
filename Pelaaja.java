@@ -3,6 +3,7 @@
 import java.io.File;
 import java.io.IOException;
 //import java.util.Map.Entry;
+import java.util.Random;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -10,8 +11,8 @@ import org.xml.sax.SAXException;
 
 public class Pelaaja {
 
-    File myObj = new File("Kysymykset.xml"); // tekoälyllä on pääsy kysymyksiin, jotta se voi vastata
-    KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
+   // File myObj = new File("Kysymykset.xml"); // tekoälyllä on pääsy kysymyksiin, jotta se voi vastata
+    KysymystenKäsittely käsittely;
 
 
     boolean siniset = false;
@@ -21,6 +22,7 @@ public class Pelaaja {
     boolean vihreat = false;
     boolean punaiset = false;
     int indeksi;
+
 
     // muuttaa pelaajan tilanteen, kun pelaaja arvaa värin oikein
     public void oikeaVastaus(String vari) {
@@ -52,6 +54,10 @@ public class Pelaaja {
         return indeksi;
     }
 
+    public void annaKysymystenKäsittely(KysymystenKäsittely käsittely) {
+        this.käsittely = käsittely;
+    }
+
     // tätä metodia käytetään tarkistamaan onko kaikki varit arvattu, palauttaa
     // boolean arvon
     public boolean kaikkiVarit() {
@@ -66,29 +72,38 @@ public class Pelaaja {
         }
     }
     //käytetään tekoälyn vastauksen generoimiseen
-    public String annaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
+    public String annaOikeaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
         if (vari.equals("siniset")) {
-            käsittely.getKysymys("siniset");
             return käsittely.getVastaus();
         } else if (vari.equals("pinkit")) {
-            käsittely.getKysymys("pinkit");
             return käsittely.getVastaus();
         } else if (vari.equals("violetit")) {
-            käsittely.getKysymys("violetit");
             return käsittely.getVastaus();
         } else if (vari.equals("keltaiset")) {
-            käsittely.getKysymys("keltaiset");
             return käsittely.getVastaus();
         } else if (vari.equals("vihreat")) {
-            käsittely.getKysymys("vihreat");
             return käsittely.getVastaus();
         } else {
-            käsittely.getKysymys("punaiset");
             return käsittely.getVastaus();
         }
 
     }
+    public String annaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException{
+        return käsittely.satunnainenVastaus(vari);
+    }
     public boolean onkoAI(){
         return false;
+    }
+
+    public String vaikeaAI(String vari) throws ParserConfigurationException, SAXException, IOException{
+        Random random = new Random();
+        int arvottu = random.nextInt(2)+1;
+
+        if(arvottu == 1){
+            return annaVastaus(vari);
+        }
+        else{
+            return annaOikeaVastaus(vari);
+        }
     }
 }

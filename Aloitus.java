@@ -88,7 +88,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
             Pelaaja pelaaja = new Pelaaja();
             pelaajat.add(pelaaja);
 
-            Pelaaja tekoaly = new Tekoaly();
+            Pelaaja tekoaly = new Tekoaly(true);
             pelaajat.add(tekoaly);
 
             tilannePaivitys = new TilannePaivitys(2); //tämän avulla luodaan pelilauta, jossa on 2 pelaajaa
@@ -119,7 +119,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
 
 
         try {
-            new Kysymystila(pelaajat, tilannePaivitys, onkoTekoaly()); //luodaan uusi Kysymystila-olio, joka avaa uuden ikkunan
+            new Kysymystila(pelaajat, tilannePaivitys); //luodaan uusi Kysymystila-olio, joka avaa uuden ikkunan
             set(); //kutsutaan set                                     //ja lähettää pelaajat-listan ja tilannePaivitys-olion
         } catch (ParserConfigurationException | SAXException | IOException e1) { //sekä metodin, joka tarkistaa onko tekoälyä mukana
             // TODO Auto-generated catch block

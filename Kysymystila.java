@@ -27,7 +27,7 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
     private JLabel label1;
     private JTextField tf1;
     TilannePaivitys tilannePaivitys;
-    boolean tekoaly;
+    
     ArrayList<String> varit = new ArrayList<String>();
     ArrayList<Color> reunavarit = new ArrayList<Color>();
     JLayeredPane pane2 = getLayeredPane();
@@ -39,15 +39,14 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
 
     // konstruktori ottaa parametreiksi pelin pelaajat listana, aikaisemmin luodun
     // pelilaudan sekä tiedon onko yksi pelaajista tekoäly
-    public Kysymystila(ArrayList<Pelaaja> pelaajat, TilannePaivitys tilannePaivitys, boolean tekoaly)
+    public Kysymystila(ArrayList<Pelaaja> pelaajat, TilannePaivitys tilannePaivitys)
             throws ParserConfigurationException, SAXException, IOException {
 
         super("Trivial Pursuit");
 
         this.pelaajat = pelaajat;
         this.tilannePaivitys = tilannePaivitys;
-        this.tekoaly = tekoaly;
-
+       
         setLayout(null);
         setSize(500, 500);
         Container c = getContentPane();
@@ -207,7 +206,7 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
     // metodi vertaa pelaajan vastausta oikeaan vastaukseen
     public boolean oikeaVastaus(String vastaus) throws ParserConfigurationException, SAXException, IOException {
         String oikeavastaus = käsittely.getVastaus();
-        if (vastaus.equals(oikeavastaus)) {
+        if (oikeavastaus.equals(vastaus)) {
             return true;
         } else {
             return false;
@@ -219,15 +218,17 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
     // metodi muuttaa sen valmiiksi textfieldiin, josta käyttäjän pitää painaa
     // vastaus nappia
     public void tekoalyVastaus() throws ParserConfigurationException, SAXException, IOException {
+        pelaajat.get(i).annaKysymystenKäsittely(käsittely);
         
         if(kierros>0){
             nappulat.get(indexib1).doClick(3000);
             vari = buttons.get(indexib1).getVari();
         }
     
-        if (tekoaly == true) {
-            String vastaus = pelaajat.get(1).annaVastaus(vari);
-            tf1.setText(vastaus);
+        if (pelaajat.get(i).onkoAI()==true) {
+            String testi =pelaajat.get(i).vaikeaAI(vari);
+            //String vastaus = pelaajat.get(i).annaOikeaVastaus(vari);
+            tf1.setText(testi);
             button1.doClick();
         }
     }
@@ -267,7 +268,7 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        if (tekoaly == true && i == 1) { // jos toinen pelaaja on tekoäly, kutsutaan tekoälyn vastaus metodia
+        if (pelaajat.get(i).onkoAI()==true) { // jos toinen pelaaja on tekoäly, kutsutaan tekoälyn vastaus metodia
             try {
                 tekoalyVastaus();
             } catch (ParserConfigurationException | SAXException | IOException e1) {

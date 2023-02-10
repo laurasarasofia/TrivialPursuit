@@ -51,9 +51,9 @@ public class KysymystenKäsittely {
     public String getKysymys(String vari) throws ParserConfigurationException, SAXException, IOException {
         this.vari = vari;
         ArrayList<NodeList> kysymykset = tiedostonKäsittely(); //kutsuu tiedostonKäsittely-metodia, joka palauttaa arraylistin
+        Random random = new Random();
 
         if (vari.equals("siniset")) {
-            Random random = new Random();
             NodeList lista = kysymykset.get(0);
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
@@ -63,7 +63,6 @@ public class KysymystenKäsittely {
         }
 
         if (vari.equals("pinkit")) {
-            Random random = new Random();
             NodeList lista = kysymykset.get(1);
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
@@ -73,7 +72,6 @@ public class KysymystenKäsittely {
 
         }
         if (vari.equals("keltaiset")) {
-            Random random = new Random();
             NodeList lista = kysymykset.get(2);
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
@@ -83,7 +81,6 @@ public class KysymystenKäsittely {
 
         }
         if (vari.equals("violetit")) {
-            Random random = new Random();
             NodeList lista = kysymykset.get(3);
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
@@ -93,7 +90,6 @@ public class KysymystenKäsittely {
 
         }
         if (vari.equals("vihreat")) {
-            Random random = new Random();
             NodeList lista = kysymykset.get(4);
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
@@ -103,7 +99,6 @@ public class KysymystenKäsittely {
 
         }
         else {
-            Random random = new Random();
             NodeList lista = kysymykset.get(5);
             indeksi = random.nextInt(lista.getLength());
             Node node = lista.item(indeksi);
@@ -163,6 +158,56 @@ public class KysymystenKäsittely {
             return palautus;
         }
         
+    }
+    public String satunnainenVastaus(String vari) throws ParserConfigurationException, SAXException, IOException{
+        ArrayList<NodeList> vastaukset = tiedostonKäsittely();
+        Random random = new Random();
+
+        if (vari.equals("siniset")) {
+            NodeList lista = vastaukset.get(0);
+            Node node = lista.item(random.nextInt(lista.getLength()));
+            Element element = (Element) node;
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
+            
+        }
+        if (vari.equals("pinkit")) {
+            NodeList lista = vastaukset.get(1);
+            Node node = lista.item(random.nextInt(lista.getLength()));
+            Element element = (Element) node;
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
+        }
+        if (vari.equals("keltaiset")) {
+            NodeList lista = vastaukset.get(2);
+            Node node = lista.item(random.nextInt(lista.getLength()));
+            Element element = (Element) node;
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
+        }
+        if (vari.equals("violetit")) {
+            NodeList lista = vastaukset.get(3);
+            Node node = lista.item(random.nextInt(lista.getLength()));
+            Element element = (Element) node;
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
+        }
+        if (vari.equals("vihreat")) {
+            NodeList lista = vastaukset.get(4);
+            Node node = lista.item(random.nextInt(lista.getLength()));
+            Element element = (Element) node;
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
+        }
+        else{
+            NodeList lista = vastaukset.get(5);
+            Node node = lista.item(random.nextInt(lista.getLength()));
+            Element element = (Element) node;
+            String palautus=element.getElementsByTagName("vastaus").item(0).getTextContent();
+            return palautus;
+        }
+        
+    
     }
 
 }

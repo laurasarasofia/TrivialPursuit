@@ -81,6 +81,10 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
         button1.addActionListener(this);
 
         setVisible(true);
+
+        if(pelaajat.get(i).onkoAI()==true){
+            tekoalyVastaus();
+        }
     }
 
     public void actionPerformed(ActionEvent e) {

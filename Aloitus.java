@@ -12,9 +12,10 @@ import java.util.Timer;
 public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka, joka perii JFrame-luokan, joka toimii ikkunanäkymänä
 
     private JButton button1;
-    private JLabel label1, sekuntikello; //luodaan tarvittavat toiminnot käyttöliittymää varten
+    private JLabel label1, sekuntikello, AIpelaajat; //luodaan tarvittavat toiminnot käyttöliittymää varten
     private JTextArea ta1, ta2;
-    private JRadioButton rb1, rb2, rb3, rb4;
+    private JRadioButton rb1, rb2;
+    private JTextField tf1, tf2;
     ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>(); //luodaan lista pelaajista
     int i = 0;
     TilannePaivitys tilannePaivitys;
@@ -42,28 +43,35 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         ta2.setBackground(Color.darkGray);
         ta2.setForeground(Color.white);
 
-        label1 = new JLabel("Kuinka monta pelaajaa? "); //luodaan otsikko allaoleville napeille
-        add(label1);
-        label1.setBounds(10, 200, 400, 20);
-        label1.setForeground(Color.white);
+        AIpelaajat = new JLabel("Kuinka monta AIpelaajaa? "); //luodaan otsikko allaoleville napeille
+        add(AIpelaajat);
+        AIpelaajat.setBounds(10, 200, 400, 20);
+        AIpelaajat.setForeground(Color.white);
 
-        rb1 = new JRadioButton("Tekoälyä vastaan");
-        rb2 = new JRadioButton("2 pelaajaa"); //luodaan napit, joilla valitaan pelaajien määrä
-        rb3 = new JRadioButton("3 pelaajaa");
-        rb4 = new JRadioButton("4 pelaajaa");
+        tf2 = new JTextField("");
+        add(tf2);
+        tf2.setBounds(10, 220, 200, 20);
+
+        rb1 = new JRadioButton("Tekoälyn taso: helppo");
+        rb2 = new JRadioButton("Tekoälyn taso: vaikea"); //luodaan napit, joilla valitaan pelaajien määrä
         add(rb1);
         add(rb2);
-        add(rb3);
-        add(rb4);
-        rb1.setBounds(10, 220, 200, 20);
-        rb2.setBounds(10, 240, 200, 20);
-        rb3.setBounds(10, 260, 200, 20);
-        rb4.setBounds(10, 280, 200, 20);
+        rb1.setBounds(10, 250, 200, 20);
+        rb2.setBounds(10, 270, 200, 20);
+ 
 
+        label1 = new JLabel("Kuinka monta pelaajaa yhteensä? ");
+        add(label1);
+        label1.setBounds(10, 300, 200, 20);
+        label1.setForeground(Color.white);
+
+        tf1 = new JTextField();
+        add(tf1);
+        tf1.setBounds(10, 320, 200, 20);
 
         button1 = new JButton("Aloita peli");
         add(button1);   //luodaan nappi, jolla aloitetaan peli
-        button1.setBounds(10, 300, 200, 20);
+        button1.setBounds(10, 340, 200, 20);
         button1.addActionListener(this);
         
         sekuntikello = new JLabel(); //luodaan sekuntikello
@@ -84,38 +92,28 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
     }
 
     public void actionPerformed(ActionEvent e) { //tämä metodi käsittelee nappien painalluksia
+        int AIpelaajienMaara= Integer.valueOf(tf2.getText()); 
+
         if (rb1.isSelected()) { //pelatessa tekoälyä vastaan pelaajat listaan lisätään pelaaja-olion lisäksi tekoaly-olio
-            Pelaaja pelaaja = new Pelaaja();
-            pelaajat.add(pelaaja);
-
-            Pelaaja tekoaly = new Tekoaly(true);
-            pelaajat.add(tekoaly);
-
-            tilannePaivitys = new TilannePaivitys(2); //tämän avulla luodaan pelilauta, jossa on 2 pelaajaa
-
+            for(int i = 0; i < AIpelaajienMaara; i++) {
+                Pelaaja tekoaly = new Tekoaly(false);
+                pelaajat.add(tekoaly);
+            }
         }
 
         if (rb2.isSelected()) {
-            for (int i = 0; i < 2; i++) {
-                Pelaaja pelaaja = new Pelaaja();
-                pelaajat.add(pelaaja);
+            for (int i = 0; i < AIpelaajienMaara; i++) {
+                Pelaaja tekoaly = new Tekoaly(true);
+                pelaajat.add(tekoaly);
             }
-            tilannePaivitys = new TilannePaivitys(2);
         }
-        if (rb3.isSelected()) {
-            for (int i = 0; i < 3; i++) {
-                Pelaaja pelaaja = new Pelaaja();
-                pelaajat.add(pelaaja);
-            }
-            tilannePaivitys = new TilannePaivitys(3); //tämän avulla luodaan pelilauta, jossa on 3 pelaajaa
+
+        for(int i =0; i < Integer.valueOf(tf1.getText())-AIpelaajienMaara; i++) { //tämä for-looppi lisää pelaajat-listaan pelaajien nimet
+            Pelaaja pelaaja = new Pelaaja();
+            pelaajat.add(pelaaja);
         }
-        if (rb4.isSelected()) {
-            for (int i = 0; i < 4; i++) {
-                Pelaaja pelaaja = new Pelaaja();
-                pelaajat.add(pelaaja);
-            }
-            tilannePaivitys = new TilannePaivitys(4); //tämän avulla luodaan pelilauta, jossa on 4 pelaajaa
-        }
+
+        TilannePaivitys tilannePaivitys = new TilannePaivitys(pelaajat.size()); //luodaan TilannePaivitys-olio, joka päivittää pelaajien pisteet
 
 
         try {
@@ -135,8 +133,6 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         label1.setFont(new Font("Arial", Font.BOLD, 20));
         rb1.setVisible(false);
         rb2.setVisible(false);
-        rb3.setVisible(false);
-        rb4.setVisible(false);
         button1.setVisible(false);
         //sekuntikello.setVisible(true);
 

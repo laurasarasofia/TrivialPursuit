@@ -138,15 +138,6 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
 
     }
 
-    public boolean onkoTekoaly(){ //tällä metodilla tarkastetaan onko tekoälyä mukana
-        for (int i = 0; i < pelaajat.size(); i++) {
-            if (pelaajat.get(i).onkoAI()==true) {
-                return true;
-            }
-
-        }
-        return false;
-    }
     public String convertSecondsToHMmSs(long seconds) {
         long s = seconds % 60;
         long m = (seconds / 60) % 60;

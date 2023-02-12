@@ -1,19 +1,14 @@
 
-//import java.util.ArrayList;
-import java.io.File;
 import java.io.IOException;
-//import java.util.Map.Entry;
 import java.util.Random;
-
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.xml.sax.SAXException;
 
 public class Pelaaja {
 
-   // File myObj = new File("Kysymykset.xml"); // tekoälyllä on pääsy kysymyksiin, jotta se voi vastata
+    // File myObj = new File("Kysymykset.xml"); // tekoälyllä on pääsy kysymyksiin,
+    // jotta se voi vastata
     KysymystenKäsittely käsittely;
-
 
     boolean siniset = false;
     boolean pinkit = false;
@@ -22,7 +17,6 @@ public class Pelaaja {
     boolean vihreat = false;
     boolean punaiset = false;
     int indeksi;
-
 
     // muuttaa pelaajan tilanteen, kun pelaaja arvaa värin oikein
     public void oikeaVastaus(String vari) {
@@ -45,11 +39,13 @@ public class Pelaaja {
             punaiset = true;
         }
     }
-    //tämän avulla tallennetaan pelaajan sijainti pelilaudalla
+
+    // tämän avulla tallennetaan pelaajan sijainti pelilaudalla
     public void setSijainti(int indeksi) {
         this.indeksi = indeksi;
     }
-    //tämän avulla saadaan pelaajan sijainti pelilaudalla
+
+    // tämän avulla saadaan pelaajan sijainti pelilaudalla
     public int getSijainti() {
         return indeksi;
     }
@@ -71,7 +67,8 @@ public class Pelaaja {
             return false;
         }
     }
-    //käytetään tekoälyn vastauksen generoimiseen
+
+    // käytetään tekoälyn vastauksen generoimiseen
     public String annaOikeaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
         if (vari.equals("siniset")) {
             return käsittely.getVastaus();
@@ -88,21 +85,22 @@ public class Pelaaja {
         }
 
     }
-    public String annaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException{
+
+    public String annaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
         return käsittely.satunnainenVastaus(vari);
     }
-    public boolean onkoAI(){
+
+    public boolean onkoAI() {
         return false;
     }
 
-    public String vaikeaAI(String vari) throws ParserConfigurationException, SAXException, IOException{
+    public String vaikeaAI(String vari) throws ParserConfigurationException, SAXException, IOException {
         Random random = new Random();
-        int arvottu = random.nextInt(2)+1;
+        int arvottu = random.nextInt(2) + 1;
 
-        if(arvottu == 1){
+        if (arvottu == 1) {
             return annaVastaus(vari);
-        }
-        else{
+        } else {
             return annaOikeaVastaus(vari);
         }
     }

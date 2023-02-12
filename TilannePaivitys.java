@@ -1,7 +1,6 @@
 import java.awt.Container;
 import java.util.ArrayList;
 import java.awt.*;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -44,7 +43,6 @@ public class TilannePaivitys extends JFrame {
             label.setForeground(Color.white);
             pane.add(label, new Integer(1));
             
-
             sininen = new JButton();
             sininen.setBorder(BorderFactory.createLineBorder(Color.blue));
             sininen.setBounds(x, y, width, height);
@@ -78,16 +76,11 @@ public class TilannePaivitys extends JFrame {
             x = x + 105;
             labelX = labelX + 105;
        
-
         }
 
         for(int i=0; i<nappulat.size(); i++){
             pane.add(nappulat.get(i), new Integer(1));
         }
-
-        
-
-
 
         setVisible(true);
     }

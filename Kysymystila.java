@@ -13,32 +13,29 @@ import java.util.Scanner;
 public class Kysymystila extends JFrame implements ActionListener { // Kysymystila-luokka luo uuden ikkunanäkymän
                                                                     // jossa pelin kysymyksiin vastataan
     Scanner lukija = new Scanner(System.in);
-    Kysymykset kysymykset = new Kysymykset();
     ArrayList<Pelaaja> pelaajat;
     File myObj = new File("Kysymykset.xml");
     KysymystenKäsittely käsittely = new KysymystenKäsittely(myObj);
 
     String kysymys;
     String vari;
-    boolean tilanne = false;
-    int indeksi;
-    int i = 0;
+    int indeksi; //käytetään pelilaudassa
+    int i = 0; //käytetään pelaajien vuoron seuraamiseen
     private JButton button1;
     private JLabel label1;
     private JTextField tf1;
     TilannePaivitys tilannePaivitys;
     
-    ArrayList<String> varit = new ArrayList<String>();
-    ArrayList<Color> reunavarit = new ArrayList<Color>();
+    ArrayList<String> varit = new ArrayList<String>(); //pelilaudan luomista varten
+    ArrayList<Color> reunavarit = new ArrayList<Color>(); //pelaajien sijainti laudalla
     JLayeredPane pane2 = getLayeredPane();
-    ArrayList<Nappula> buttons = new ArrayList<Nappula>();
-    ArrayList<JButton> nappulat = new ArrayList<JButton>();
-    int kierros = 0;
-    int indexib1 = 0;
+    ArrayList<Nappula> buttons = new ArrayList<Nappula>(); //pelilaudan nappula-oliot
+    ArrayList<JButton> nappulat = new ArrayList<JButton>(); //pelilaudan nappulat
+    int kierros = 0; //monesko kierros käynnissä
+    int indexib1 = 0; //pelilaudan vaihtoehtojen indeksit
     int indexib2 = 0;
 
     // konstruktori ottaa parametreiksi pelin pelaajat listana, aikaisemmin luodun
-    // pelilaudan sekä tiedon onko yksi pelaajista tekoäly
     public Kysymystila(ArrayList<Pelaaja> pelaajat, TilannePaivitys tilannePaivitys)
             throws ParserConfigurationException, SAXException, IOException {
 
@@ -89,27 +86,29 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
 
     public void actionPerformed(ActionEvent e) {
         // painettaessa vastaa nappia kutsutaan peli metodi
-        if (e.getActionCommand().equals("Vastaa") && pelaajat.get(i).kaikkiVarit() == tilanne) {
+        if (e.getActionCommand().equals("Vastaa") && pelaajat.get(i).kaikkiVarit() == false) {
 
             peli();
 
         }
         // painettaessa vaihtoehto nappeja kutsutaan valittukysymys-metodia oikealla indeksillä
         if (e.getSource() == nappulat.get(indexib1)) {
+            nappulat.get(indexib1).removeActionListener(this);
+            nappulat.get(indexib2).removeActionListener(this);
             indeksi = indexib1; //muutetaan indeksi, jotta voidaan muuttaa nappulan reunat oikealle kohdalle
             try {
                 valittuKysymys(indexib1);
             } catch (ParserConfigurationException | SAXException | IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
         }
         if (e.getSource() == nappulat.get(indexib2)) {
+            nappulat.get(indexib1).removeActionListener(this);
+            nappulat.get(indexib2).removeActionListener(this);
             indeksi = indexib2;
             try {
                 valittuKysymys(indexib2);
             } catch (ParserConfigurationException | SAXException | IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
         }
@@ -253,7 +252,6 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
                 JOptionPane.showMessageDialog(null, "Väärin! Oikea vastaus on: " + käsittely.getVastaus());
             }
         } catch (HeadlessException | ParserConfigurationException | SAXException | IOException e2) {
-            // TODO Auto-generated catch block
             e2.printStackTrace();
         }
         if (pelaajat.get(i).kaikkiVarit() == true) { // jos pelaaja on saavuttanut kaikki värit, peli päättyy
@@ -269,14 +267,13 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
         try { // tyhjentää vastauskentän ja antaa uuden kysymyksen kutsumalla set
             set(i);
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
         if (pelaajat.get(i).onkoAI()==true) { // jos toinen pelaaja on tekoäly, kutsutaan tekoälyn vastaus metodia
             try {
                 tekoalyVastaus();
             } catch (ParserConfigurationException | SAXException | IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
         }

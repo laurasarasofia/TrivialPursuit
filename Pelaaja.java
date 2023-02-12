@@ -70,24 +70,12 @@ public class Pelaaja {
 
     // käytetään tekoälyn vastauksen generoimiseen
     public String annaOikeaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
-        if (vari.equals("siniset")) {
-            return käsittely.getVastaus();
-        } else if (vari.equals("pinkit")) {
-            return käsittely.getVastaus();
-        } else if (vari.equals("violetit")) {
-            return käsittely.getVastaus();
-        } else if (vari.equals("keltaiset")) {
-            return käsittely.getVastaus();
-        } else if (vari.equals("vihreat")) {
-            return käsittely.getVastaus();
-        } else {
-            return käsittely.getVastaus();
-        }
+        return null;
 
     }
 
     public String annaVastaus(String vari) throws ParserConfigurationException, SAXException, IOException {
-        return käsittely.satunnainenVastaus(vari);
+        return null;
     }
 
     public boolean onkoAI() {

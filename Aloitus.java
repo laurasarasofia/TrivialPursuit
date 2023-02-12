@@ -37,7 +37,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         ta1.setBackground(Color.darkGray);
         ta1.setForeground(Color.white);
 
-        ta2 = new JTextArea("Pelissä toimivat kategoriat"+ "\n" + "Sininen: maantiede"+ "\n" + "Pinkki: viihde"+ "\n" + "Keltainen: historia ja yhteiskunta"+ "\n" + "Ruskea: taide ja kirjallisuus"+ "\n" + "Vihreä: tiede ja ympäristö"+ "\n" + "Oranssi: urheilu");
+        ta2 = new JTextArea("Pelissä toimivat kategoriat"+ "\n" + "Sininen: maantiede"+ "\n" + "Pinkki: viihde"+ "\n" + "Keltainen: historia ja yhteiskunta"+ "\n" + "Violetti: taide ja kirjallisuus"+ "\n" + "Vihreä: tiede ja ympäristö"+ "\n" + "Punainen: urheilu");
         add(ta2);
         ta2.setBounds(10, 85, 400, 115); //tässä tekstikentässä on pelin kategoriat
         ta2.setBackground(Color.darkGray);

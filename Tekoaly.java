@@ -28,9 +28,8 @@ public class Tekoaly extends Pelaaja { // tekoäly perii pelaajan ominaisuudet
         } else {
             return käsittely.getVastaus();
         }
-
     }
-    
+
     public void annaKysymystenKäsittely(KysymystenKäsittely käsittely) {
         this.käsittely = käsittely;
     }
@@ -57,5 +56,4 @@ public class Tekoaly extends Pelaaja { // tekoäly perii pelaajan ominaisuudet
     public boolean onkoVaikea() {
         return vaikea;
     }
-
 }

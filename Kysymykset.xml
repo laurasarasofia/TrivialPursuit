@@ -17,6 +17,34 @@
     <vastaus>Pietari</vastaus>
   </siniset>
   <siniset>
+  <kysymys>Mikä on maailman suurin maa?</kysymys>
+  <vastaus>Kiina</vastaus>
+</siniset>
+<siniset>
+  <kysymys>Mikä on maailman toiseksi suurin järvi?</kysymys>
+  <vastaus>Baikal</vastaus>
+</siniset>
+<siniset>
+  <kysymys>Missä maassa sijaitsee Maailman talousfoorumi (WEF)?</kysymys>
+  <vastaus>Sveitsissä</vastaus>
+</siniset>
+<siniset>
+  <kysymys>Mikä on Etelä-Amerikan suurin maa?</kysymys>
+  <vastaus>Brasilia</vastaus>
+</siniset>
+<siniset>
+  <kysymys>Mikä on maailman pisin joki?</kysymys>
+  <vastaus>Amazon</vastaus>
+</siniset>
+<siniset>
+  <kysymys>Mikä on Australian pääkaupunki?</kysymys>
+  <vastaus>Canberra</vastaus>
+</siniset>
+<siniset>
+  <kysymys>Mikä on Suomen suurin järvi?</kysymys>
+  <vastaus>Saimaa</vastaus>
+</siniset>
+  <siniset>
     <kysymys>Kuinka monta aikavyöhykettä Venäjällä on?</kysymys>
     <vastaus>11</vastaus>
   </siniset>
@@ -113,6 +141,14 @@
     <vastaus>1969</vastaus>
   </keltaiset>
   <keltaiset>
+    <kysymys>Minä vuonna oli Amerikan itsenäisyysjulistus?</kysymys>
+    <vastaus>1776</vastaus>
+  </keltaiset>
+  <keltaiset>
+    <kysymys>Kuka oli ensimmäinen Britannian kuningas?</kysymys>
+    <vastaus>Alfred Suuri</vastaus>
+  </keltaiset>
+  <keltaiset>
     <kysymys>Milloin Suomi liittyi EU:hun?</kysymys>
     <vastaus>1995</vastaus>
   </keltaiset>
@@ -167,6 +203,10 @@
   <vihreat>
     <kysymys>Mikä on kullan järjestysluku?</kysymys>
     <vastaus>79</vastaus>
+  </vihreat>
+  <vihreat>
+    <kysymys>Mikä on perusyksikkö pituuden mittaukselle SI-järjestelmässä?</kysymys>
+    <vastaus>Metri</vastaus>
   </vihreat>
   <vihreat>
     <kysymys>Mikä on Ilveksen latinan kielinen nimi?</kysymys>
@@ -235,5 +275,29 @@
   <punaiset>
     <kysymys>Kuinka monta pistettä Michael Jordan teki ensimmäisessä NBA pelissään?</kysymys>
     <vastaus>16</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä on Suomen kansallinen urheilulaji?</kysymys>
+    <vastaus>Pesäpallo</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä on maailman suurin urheilutapahtuma?</kysymys>
+    <vastaus>Olympialaiset</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä on maailman suurin jääkiekkoturnaus?</kysymys>
+    <vastaus>MM-kisat</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä on maailman suurin golfkilpailu?</kysymys>
+    <vastaus>Masters</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Missä maassa pelataan Wimbledonin tenisturnaus?</kysymys>
+    <vastaus>Iso-Britannia</vastaus>
+  </punaiset>
+  <punaiset>
+    <kysymys>Mikä on maailman suurin maratonkilpailu?</kysymys>
+    <vastaus>New York City Marathon</vastaus>
   </punaiset>
 </kysymykset>

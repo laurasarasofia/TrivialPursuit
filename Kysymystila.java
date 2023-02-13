@@ -50,10 +50,21 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
         c.setBackground(Color.darkGray);
 
         //lisää listaan värit, joidenka avulla merkataan pelilaudalle kenen vuoro on kyseessä
-        reunavarit.add(Color.orange);
-        reunavarit.add(Color.black);
-        reunavarit.add(Color.white);
-        reunavarit.add(Color.cyan);
+        Color c1 = new Color(255, 153, 204);
+        Color c2 = new Color(153, 255, 51);
+        Color c3 = new Color(255, 255, 51);
+        Color c4 = new Color(51, 153, 255);
+        Color c5 = new Color(204, 0, 102);
+        Color c6 = new Color(102, 255, 255);
+        Color c7 = new Color(76, 0, 153);
+        reunavarit.add(c7);
+        reunavarit.add(c1);
+        reunavarit.add(c2);
+        reunavarit.add(c3);
+        reunavarit.add(c4);
+        reunavarit.add(c5);
+        reunavarit.add(c6);
+
 
         //kutsuu metodia, joka luo pelilaudan
         pelilauta();
@@ -83,6 +94,8 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
             tekoalyVastaus();
         }
     }
+
+    
 
     public void actionPerformed(ActionEvent e) {
         // painettaessa vastaa nappia kutsutaan peli metodi
@@ -296,20 +309,21 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
         }
         //for-loopissa muutetaan nappuloiden sijainteja, jotta saadaan oikean muotoinen pelilauta
         for (int i = 0; i < varit.size(); i++) {
+            //Font nappulafont=new Font("Arial", Font.BOLD, 10);
             Nappula nappula = new Nappula(varit.get(i), x, y);
-            // x=x+50;
-            if (y == 250 && x == 160) {
-                x = x - 50;
-            } else if (y <= 250 && y > 100 && x == 10) {
-                y = y - 50;
-            } else if (x == 160) {
-                y = y + 50;
-            } else if (y == 250) {
-                x = x - 50;
+            if (y == 310 && x == 220) {
+                x = x - 70;
+            } else if (y <= 310 && y > 100 && x == 10) {
+                y = y - 70;
+            } else if (x == 220) {
+                y = y + 70;
+            } else if (y == 310) {
+                x = x - 70;
             } else {
-                x = x + 50;
+                x = x + 70;
             }
-            // nappula.getNappula().addActionListener(this);
+            nappula.getNappula().setText(nappula.getVari());
+            //nappula.getNappula().setFont(nappulafont);
             pane2.add(nappula.getNappula(), new Integer(1));
             buttons.add(nappula);
             nappulat.add(nappula.getNappula());

@@ -31,8 +31,8 @@ public class TilannePaivitys extends JFrame {
 
         int x = 5; //luodaan muuttujia, jotta voidaan helposti hallita nappuloiden sijaintia pelilaudalla pelaajien määrän muuttuessa
         int y = 40;
-        int width = 50;
-        int height = 50;
+        int width = 60;
+        int height = 60;
         int labelY = 20;
         int labelX = 5;
 
@@ -46,35 +46,48 @@ public class TilannePaivitys extends JFrame {
             sininen = new JButton();
             sininen.setBorder(BorderFactory.createLineBorder(Color.blue));
             sininen.setBounds(x, y, width, height);
+            sininen.setText("sininen");
+            sininen.setForeground(Color.black);
             nappulat.add(sininen);
+            
 
             pinkki = new JButton();
             pinkki.setBorder(BorderFactory.createLineBorder(Color.pink));
             pinkki.setBounds(x, (y + height), width, height);
+            pinkki.setText("pinkki");
+            pinkki.setForeground(Color.black);
             nappulat.add(pinkki);
 
             keltainen = new JButton();
             keltainen.setBorder(BorderFactory.createLineBorder(Color.yellow));
             keltainen.setBounds(x, (y + (2 * height)), width, height);
+            keltainen.setText("keltainen");
+            keltainen.setForeground(Color.black);
             nappulat.add(keltainen);
 
             violetti = new JButton();
             violetti.setBorder(BorderFactory.createLineBorder(Color.magenta));
             violetti.setBounds((x + width), y, width, height);
+            violetti.setText("violetti");
+            violetti.setForeground(Color.black);
             nappulat.add(violetti);
 
             vihrea = new JButton();
             vihrea.setBorder(BorderFactory.createLineBorder(Color.green));
             vihrea.setBounds((x + width), (y + height), width, height);
+            vihrea.setText("vihrea");
+            vihrea.setForeground(Color.black);
             nappulat.add(vihrea);
 
             punainen = new JButton();
             punainen.setBorder(BorderFactory.createLineBorder(Color.red));
             punainen.setBounds((x + width), (y + (2 * height)), width, height);
+            punainen.setText("punainen");
+            punainen.setForeground(Color.black);
             nappulat.add(punainen);
 
-            x = x + 105;
-            labelX = labelX + 105;
+            x = x + 130;
+            labelX = labelX + 130;
        
         }
 
@@ -93,6 +106,7 @@ public class TilannePaivitys extends JFrame {
             for(int i=0; i<(pelaaja+1); i++){
                 if(i==pelaaja){
                     nappulat.get(indeksi).setBackground(Color.blue);
+                    nappulat.get(indeksi).setForeground(Color.white);
                 }
                 indeksi=indeksi+6;
             }
@@ -102,6 +116,7 @@ public class TilannePaivitys extends JFrame {
             for(int i=0; i<(pelaaja+1); i++){
                 if(i==pelaaja){
                     nappulat.get(indeksi).setBackground(Color.pink);
+                    nappulat.get(indeksi).setForeground(Color.white);
                 }
                 indeksi=indeksi+6;
             }
@@ -120,6 +135,7 @@ public class TilannePaivitys extends JFrame {
             for(int i=0; i<(pelaaja+1); i++){
                 if(i==pelaaja){
                     nappulat.get(indeksi).setBackground(Color.magenta);
+                    nappulat.get(indeksi).setForeground(Color.white);
                 }
                 indeksi=indeksi+6;
             }
@@ -129,6 +145,7 @@ public class TilannePaivitys extends JFrame {
             for(int i=0; i<(pelaaja+1); i++){
                 if(i==pelaaja){
                     nappulat.get(indeksi).setBackground(Color.green);
+                    nappulat.get(indeksi).setForeground(Color.white);
                 }
                 indeksi=indeksi+6;
             }
@@ -138,6 +155,7 @@ public class TilannePaivitys extends JFrame {
             for(int i=0; i<(pelaaja+1); i++){
                 if(i==pelaaja){
                     nappulat.get(indeksi).setBackground(Color.red);
+                    nappulat.get(indeksi).setForeground(Color.white);
                 }
                 indeksi=indeksi+6;
             }

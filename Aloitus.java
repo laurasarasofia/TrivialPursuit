@@ -27,37 +27,41 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         long start = System.currentTimeMillis();
 
         setLayout(null); 
-        setSize(500, 500);
+        setSize(550, 500);
         Container c = getContentPane(); //luodaan Container näkymää varten
         c.setBackground(Color.darkGray);
 
+        Font leipäteksti= new Font("Arial",Font.PLAIN, 14); //luodaan fontti, jota käytetään tekstikentissä
+
         ta1 = new JTextArea("Tervetuloa pelaamaan Trivial Pursuitia!" + "\n" + "Pelissä on tarkoituksena kerätä oikeat vastaukset jokaisesta" + "\n" + "kategoriasta. Suoritettuaan sen peli päättyy." + "\n" + "Tärkeä ohje: kirjoita vastauksesi isoilla alkukirjaimilla tarkasti oikein.");
         add(ta1);
-        ta1.setBounds(10, 10, 400, 70); //tämä tekstikenttä kertoo pelin ohjeistuksen
-        ta1.setBackground(Color.darkGray);
+        ta1.setBounds(10, 10, 425, 70); //tämä tekstikenttä kertoo pelin ohjeistuksen
+        ta1.setBackground(Color.GRAY);
         ta1.setForeground(Color.white);
+        ta1.setFont(leipäteksti);
 
-        ta2 = new JTextArea("Pelissä toimivat kategoriat"+ "\n" + "Sininen: maantiede"+ "\n" + "Pinkki: viihde"+ "\n" + "Keltainen: historia ja yhteiskunta"+ "\n" + "Violetti: taide ja kirjallisuus"+ "\n" + "Vihreä: tiede ja ympäristö"+ "\n" + "Punainen: urheilu");
+        ta2 = new JTextArea("Pelin kategoriat:"+ "\n" + "Sininen: maantiede"+ "\n" + "Pinkki: viihde"+ "\n" + "Keltainen: historia ja yhteiskunta"+ "\n" + "Violetti: taide ja kirjallisuus"+ "\n" + "Vihreä: tiede ja ympäristö"+ "\n" + "Punainen: urheilu");
         add(ta2);
-        ta2.setBounds(10, 85, 400, 115); //tässä tekstikentässä on pelin kategoriat
-        ta2.setBackground(Color.darkGray);
+        ta2.setBounds(10, 85, 425, 120); //tässä tekstikentässä on pelin kategoriat
+        ta2.setBackground(Color.GRAY);
         ta2.setForeground(Color.white);
+        ta2.setFont(leipäteksti);
 
-        AIpelaajat = new JLabel("Kuinka monta AIpelaajaa? "); //luodaan otsikko allaoleville napeille
+        AIpelaajat = new JLabel("Kuinka monta AI-pelaajaa? "); //luodaan otsikko allaoleville napeille
         add(AIpelaajat);
-        AIpelaajat.setBounds(10, 200, 400, 20);
+        AIpelaajat.setBounds(10, 205, 400, 20);
         AIpelaajat.setForeground(Color.white);
 
         tf2 = new JTextField("");
         add(tf2);
-        tf2.setBounds(10, 220, 200, 20);
+        tf2.setBounds(10, 225, 200, 20);
 
         rb1 = new JRadioButton("Tekoälyn taso: helppo");
         rb2 = new JRadioButton("Tekoälyn taso: vaikea"); //luodaan napit, joilla valitaan pelaajien määrä
         add(rb1);
         add(rb2);
-        rb1.setBounds(10, 250, 200, 20);
-        rb2.setBounds(10, 270, 200, 20);
+        rb1.setBounds(10, 255, 200, 20);
+        rb2.setBounds(10, 275, 200, 20);
  
 
         label1 = new JLabel("Kuinka monta pelaajaa yhteensä? ");
@@ -76,7 +80,7 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
         
         sekuntikello = new JLabel(); //luodaan sekuntikello
         add(sekuntikello);
-        sekuntikello.setBounds(420, 10, 200, 20);
+        sekuntikello.setBounds(450, 10, 200, 20);
         sekuntikello.setForeground(Color.white);
 
         Timer currentTime = new Timer(); //luodaan Timer, jonka avulla näytetään pelin aloittamisesta kulunut aika
@@ -131,8 +135,12 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
     public void set() throws ParserConfigurationException, SAXException, IOException {
         label1.setText("Peli alkoi!"); //tämä metodi muuttaa aloitusikkunan tekstin pelin alettua ja piilottaa näkymästä tarpeettomat asiat
         label1.setFont(new Font("Arial", Font.BOLD, 20));
+        label1.setBounds(10, 210, 200, 20);
         rb1.setVisible(false);
         rb2.setVisible(false);
+        AIpelaajat.setVisible(false);
+        tf1.setVisible(false);
+        tf2.setVisible(false);
         button1.setVisible(false);
         //sekuntikello.setVisible(true);
 

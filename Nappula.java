@@ -7,8 +7,8 @@ import javax.swing.JButton;
 public class Nappula {
     String vari;
     JButton nappula;
-    int width =50;
-    int height =50;
+    int width =70;
+    int height =70;
     int x;
     int y;
     //konstruktori ottaa parametreikseen nappulan väriä vastaavan Stringin ja sijainnin
@@ -17,25 +17,32 @@ public class Nappula {
         this.x = x;
         this.y = y;
         nappula = new JButton();
+        nappula.setForeground(Color.white);
         nappula.setBounds(x, y, width, height);
 
         if(vari.equals("siniset")){
             nappula.setBackground(Color.blue);
+            //nappula.setText(vari);
         }
         if(vari.equals("pinkit")){
             nappula.setBackground(Color.pink);
+            //nappula.setText(vari);
         }
         if(vari.equals("keltaiset")){
             nappula.setBackground(Color.yellow);
+            //nappula.setText(vari);
         }
         if(vari.equals("violetit")){
             nappula.setBackground(Color.magenta);
+            //nappula.setText(vari);
         }
         if(vari.equals("vihreat")){
             nappula.setBackground(Color.green);
+            //nappula.setText(vari);
         }
         if(vari.equals("punaiset")){
             nappula.setBackground(Color.red);
+            //nappula.setText(vari);
         }
     }
     //palauttaa nappulan JButtonin

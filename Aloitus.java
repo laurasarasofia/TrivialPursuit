@@ -121,8 +121,9 @@ public class Aloitus extends JFrame implements ActionListener { //Aloitus-luokka
 
 
         try {
+            set(); //kutsutaan set 
             new Kysymystila(pelaajat, tilannePaivitys); //luodaan uusi Kysymystila-olio, joka avaa uuden ikkunan
-            set(); //kutsutaan set                                     //ja lähettää pelaajat-listan ja tilannePaivitys-olion
+            //set(); //kutsutaan set                                     //ja lähettää pelaajat-listan ja tilannePaivitys-olion
         } catch (ParserConfigurationException | SAXException | IOException e1) { //sekä metodin, joka tarkistaa onko tekoälyä mukana
             // TODO Auto-generated catch block
             e1.printStackTrace();

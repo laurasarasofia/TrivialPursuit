@@ -22,8 +22,15 @@ public class TilannePaivitys extends JFrame {
 
         this.pelaajat = pelaajat;
 
+        int layoutW=500;
+        if(pelaajat>3){
+            for(int i=0; i<(pelaajat-3);i++){
+                layoutW+=120;
+            }
+        }
+
         setLayout(null);
-        setSize(500, 500);
+        setSize(layoutW, 500);
         Container c = getContentPane();
         c.setBackground(Color.darkGray);
 
@@ -145,7 +152,6 @@ public class TilannePaivitys extends JFrame {
             for(int i=0; i<(pelaaja+1); i++){
                 if(i==pelaaja){
                     nappulat.get(indeksi).setBackground(Color.green);
-                    nappulat.get(indeksi).setForeground(Color.white);
                 }
                 indeksi=indeksi+6;
             }

@@ -322,7 +322,14 @@ public class Kysymystila extends JFrame implements ActionListener { // Kysymysti
             } else {
                 x = x + 70;
             }
+
+            if(nappula.getVari().equals("keltaiset")){
+                nappula.getNappula().setText(nappula.getVari());
+                nappula.getNappula().setForeground(Color.BLACK);
+            }
+            else{
             nappula.getNappula().setText(nappula.getVari());
+            }
             //nappula.getNappula().setFont(nappulafont);
             pane2.add(nappula.getNappula(), new Integer(1));
             buttons.add(nappula);
